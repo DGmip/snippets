@@ -1,0 +1,259 @@
+## Global Snippets
+# Define a new Angular Controller;
+# You can change the controller name and parameters
+snippet ngc
+	var ${1:controllerName} = function(${2:scope}, ${3:injectables}) {
+		${4}
+	};
+# angular.foreach loop
+snippet ngfor
+	angular.forEach(${1:iterateOver}, function(value, key) {
+		${2}
+	});
+## Module Based Snippets
+# A new angular module without a config function
+snippet ngm
+	angular.module('${1:moduleName}', [${2:moduleDependencies}]);
+	${3}
+# A new angular module without a config function and a variable assignment
+snippet ngma
+	var ${1:moduleName} = angular.module('$1', [${2:moduleDeps}]);
+	${3}
+# A new angular module with a config function
+snippet ngmc
+	var ${1:moduleName} = angular.module('$1', [${2:moduleDeps}], function(${3:configDeps}) {
+		${4}
+	});
+# A factory in a module
+snippet ngmfa
+	factory('${1:factoryName}', function(${2:dependencies}) {
+		${3}
+	});
+# Define an Angular Module Service to be attached to a previously defined module
+# You can change the service name and service injectables
+snippet ngms
+	service('${1:serviceName}', function(${2:injectables}) {
+		${3}
+	});
+# Define an Angular Module Filter to be attached to a previously defined module
+# You can change the filter name
+snippet ngmfi
+	filter('${1:filterName}', function(${2:injectables}) {
+		return function(input, ${3:args}) {
+			${4}
+		};
+	});
+## Route Based Snippets
+# Defines a when condition of an AngularJS route
+snippet ngrw
+	$routeProvider.when('${1:url}', {
+		templateUrl: '${2:templateUrl}',
+		controller: '${3:controller}'
+	});
+	${4}
+# Defines a when condition of an AngularJS route with the resolve block
+snippet ngrwr
+	$routeProvider.when('${1:url}', {
+		templateUrl: '${2:templateUrl}',
+		controller: '${3:controller}',
+		resolve: {
+			${4}
+		}
+	});
+	${5}
+# Defines an otherwise condition of an AngularJS route
+snippet ngro
+	$routeProvider.otherwise({
+		redirectTo: '${1:url}'
+	});
+	${2}
+## Scope Related Snippets
+# Define a new $scope'd function (usually inside an AngularJS Controller)
+# You can change the function name and arguments
+snippet $f
+	$scope.${1:functionName} = function(${2:args}) {
+		${3}
+	};
+# Defines a new $scope'd variable inside an AngularJS controller
+snippet $v
+	$scope.${1:variable} = ${2:value};
+	${3}
+# Defines a new $scope'd variable inside an AngularJS controller and assigns a value from a constructor arguments
+snippet $va
+	$scope.${1:variable} = ${2:variable};
+	${3}
+# Define a $watch for an expression
+# You can change the expression to be watched
+snippet $w
+	$scope.$watch('${1:watchExpr}', function(newValue, oldValue) {
+		${2}
+	});
+# Define a $on for a $broadcast/$emit on the $scope inside an Angular Controller
+# You can change the event name to listen on
+snippet $on
+	$scope.$on('${1:eventName}', function(event, ${2:args}) {
+		${3}
+	});
+# Define a $broadcast for a $scope inside an Angular Controller / Angular Controller Function
+# You can change the event name and optional event arguments
+snippet $b
+	$scope.$broadcast('${1:eventName}', ${2:eventArgs});
+	${3}
+# Define an $emit for a $scope inside an Angular Controller / Angular Controller Function
+# You can change the event name and optional event arguments
+snippet $e
+	$scope.$emit('${1:eventName}', ${2:eventArgs});
+	${3}
+## Directive related snippets
+# A compile function
+snippet ngdcf
+	function compile(tElement, tAttrs, transclude) {
+		return function(scope, element, attrs) {
+			${1}
+		}
+	}
+# A linking function in a directive
+snippet ngdlf
+	function(scope, element, attrs${1:ctrl}) {
+		${2}
+	}
+# A directive with a compile function
+snippet ngdc
+	directive('${1:directiveName}', function factory(${2:injectables}) {
+		var directiveDefinitionObject = {
+			${3:directiveAttrs},
+			compile: function compile(tElement, tAttrs, transclude) {
+				return function (scope, element, attrs) {
+				
+				}
+			}
+		};
+		return directiveDefinitionObject;
+	});
+# A directive with a linking function only
+snippet ngdl
+	.directive('${1:directiveName}', function(${2:directiveDeps}) {
+		return function(scope, element, attrs${3:ctrl}) {
+			${4}
+		}
+	});
+snippet app
+	var ${1:varName} = angular.module("${2:appName}", [${3:dependancies}]);
+snippet cont
+	${1:appName}.controller("${2:controllerName}", function () {
+		'use strict';
+		var self = this;
+		self.test = "tested";
+	});
+snippet route
+	${1:appName}.config(['$routeProvider', function($routeProvider) {
+			$routeProvider.
+				when('/${2:route}', {
+					templateUrl: 'partials/${3:templateName}',
+					controller: '${4:controllerName}'
+				}).
+				otherwise({
+					redirectTo: '/'
+				});
+			}]);
+			// you need to include angular-route.min.js and put 'ngRoute' as a dependancy for your app
+snippet when
+	when('/${1:route}', {
+		templateUrl: 'templates/views/${2:$1}',
+		controller: '${3:controllerName}'
+	}).
+snippet con
+	console.log("${1:Here}: ", ${2} );
+snippet c
+	console.log( ${1} );
+snippet sc
+	$scope.${1:name} = ${2};
+snippet scf
+	$scope.${1:name} = function(${2:params}) {
+		${3}
+	};
+snippet template
+	<script id="${1:id}" type="text/ng-template">
+	</script>
+snippet llngd
+	directives.directive('${1:name}', [ ${2:dependancies}, function( ${3:params} ) {
+		return {
+			scope: true,
+			templateUrl: '${4:$1}.html',
+			restrict: '${5:E}',
+			link: function(scope, element, attrs) {
+				${6:gogogo}
+			} // end linking
+		}; // end return
+	}]);
+
+snippet deb
+	$log.debug( "${1:id}", ${2:$1} );
+snippet v
+	var ${1:text} = ${2:text};
+snippet http
+	// Simple GET request example:
+	$http({
+		method: '${1:GET}',
+		url: '/${1:url}'
+	}).then(function successCallback(response) {
+			// this callback will be called asynchronously
+			// when the response is available
+		}, function errorCallback(response) {
+			// called asynchronously if an error occurs
+			// or server returns response with an error status.
+		});
+snippet da
+	${1:key}: '=${2:$1}',
+snippet ar
+	ng-repeat="${3:ref} in test.G.Access(test.uid, '${1:in}', '${2:edge}')"
+snippet open
+	G.Open(${1:test.uid})${2:}
+snippet lltoast
+	//scope.LLToast = (text, position, duration, id, icon, colourClass)
+	APIService.LLToast(${1:text});
+snippet filter
+	app.filter('${1:name}', function() {
+		return function(input) {
+			${1}
+		};
+	});
+snippet timeo
+	$timeout(function(){
+		${2:func}
+	},${1:1000});
+snippet followstate
+	// this.Entity.FollowState = function (targetID, state, callback) {
+snippet userindex
+	// this.UserIndex = function (id, phase, predicate) {
+	$scope.following = GraphService.UserIndex(${1:id}, ${2:phase}, ${3:predicate})
+snippet toast
+	//scope.LLToast = function (text, position, duration, id, icon, iconClass) {
+	APIService.LLToast(${1:text}, ${2:null}, ${3:duration},	${4}, ${5})
+
+snippet tiny
+	case '${1:text}':
+		$location.url('page');
+		$location.hash(list[id]);
+		break;${2}
+snippet tb
+	<md-toolbar md-scroll-shrink>
+		<div class="md-toolbar-tools" layout='row' layout-align='center center'> <h1>${1:text}</h1> </div>
+	</md-toolbar>${2}
+
+snippet llaccordion
+	<ll-accordion id="${1:id}" data="${2:text}" active="${3:text}" active-sub="${4:text}" callback="${5:text}"></ll-accordion>
+
+snippet cg
+	Fact( '${1:text}', '${2:text}', ${3:text}, '${4:info}');
+snippet mdd
+	$mdDialog.show(
+		$mdDialog.alert()
+			.parent(angular.element(document.querySelector(${1:elementId})))
+			.clickOutsideToClose(true)
+			.title(${2:title})
+			.textContent("")
+			.ariaLabel('Alert Dialog')
+			.ok('Okay')
+			.targetEvent(ev)
+	);

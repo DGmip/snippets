@@ -1,0 +1,90 @@
+snippet anno
+	margin: 0px
+	padding: 0px
+snippet p
+	padding: ${1:text}px
+snippet pr
+	padding-right: ${1:20}px
+snippet pl
+	padding-left: ${1:20}px
+snippet b
+	border: ${1:1px} solid $${2:orange}
+snippet sm
+	+breakpoint($small)
+		${1:text}
+snippet bp
+	+breakpoint(${1:text})
+		${2:text}
+snippet hello
+	background-color: $orange
+snippet wh
+	width: ${1:20}px
+	height: ${2:$1}px
+snippet bg
+	background-color: ${1:$orange}
+snippet relt
+	position: relative
+	top: ${1:5}px
+snippet relb
+	position: relative
+	bottom: ${1:5}px
+snippet rell
+	position: relative
+	top: ${1:5}px
+	left: ${2:5}px
+snippet relr
+	position: relative
+	top: ${1:5}px
+	right: ${2:5}px
+snippet mb
+	margin-bottom: ${1:5}px
+snippet mt
+	margin-top: ${1:5}px
+snippet ml
+	margin-left: ${1:5}px
+snippet si
+	width: 50px
+	height: 50px
+snippet h
+	height: ${1:20}px
+snippet ta
+	text-align: ${1:center}
+snippet fat
+	width: 100%
+snippet tall
+	height: 100%
+snippet hstack
+	h1, h2, h3, h4, h5, h6
+		${1:text}
+snippet mar
+	margin: ${1:text}px
+snippet trans
+	+transition-property(${1:all})
+	+transition-duration(${2:0.4s})
+	+transition-timing-function(${3:linear})
+snippet constrain
+	width: ${1:int}px
+	height: $1px
+	min-height: $1px
+	max-height: $1px
+	min-width: $1px
+	max-width: $1px
+	line-height: $1px
+snippet br
+	+border-top-left-radius(${1:int}px)
+	+border-top-right-radius($1px)
+	+border-bottom-left-radius($1px)
+	+border-bottom-right-radius($1px)
+snippet ff
+	font-family: ${1:ubuntu}
+snippet fs
+	font-size: ${1:1em}
+snippet bgi
+	+background(image-url("https://libs.leadinglocally.com/images/background2.jpg"), linear-gradient(to bottom right, #333, #0c0), radial-gradient(#c00, #fff 100px))
+snippet translate
+	transform: translate(${1:-50%}, ${2:-50%})
+snippet centerit
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)

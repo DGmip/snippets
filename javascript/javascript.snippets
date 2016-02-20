@@ -1,0 +1,465 @@
+# Functions
+
+# prototype
+snippet proto
+	${1:class_name}.prototype.${2:method_name} = function(${3}) {
+		${0}
+	};
+# Function
+snippet fun
+	function ${1:function_name}(${2}) {
+		${0}
+	}
+# Anonymous Function
+snippet f
+	= function(${1}) {
+		${0}
+	};
+# Anonymous Function assigned to variable
+snippet vaf
+	var ${1:function_name} = function(${2}) {
+		${0}
+	};
+# Function assigned to variable
+snippet vf
+	var ${1:function_name} = function $1(${2}) {
+		${0}
+	};
+# Immediate function
+snippet (f
+	(function(${1}) {
+		${0}
+	}(${2}));
+# self-defining function
+snippet sdf
+	var ${1:function_name} = function (${2:argument}) {
+		${3}
+
+		$1 = function ($2) {
+			${0}
+		};
+	};
+
+# Flow control
+
+# if
+snippet if
+	if (${1:true}) {
+		${0}
+	}
+# if ... else
+snippet ife
+	if (${1:true}) {
+		${2}
+	} else {
+		${0}
+	}
+# tertiary conditional
+snippet ter
+	${1:/* condition */} ? ${2:/* if true */} : ${0:/* if false */}
+# switch
+snippet switch
+	switch (${1:expression}) {
+		case '${2:case}':
+			break;
+		default:
+	}
+# case
+snippet case
+	case '${1:case}':
+		${2}
+		break;
+	${0}
+# try
+snippet try
+	try {
+		${1}
+	} catch (${2:e}) {
+		${0:/* handle error */}
+	}
+# return
+snippet ret
+	return ${0:result};
+# Loops
+
+# for loop
+snippet for
+	for (var ${2:i} = 0, l = ${1:arr}.length; $2 < l; $2 ++) {
+		var ${3:v} = $1[$2];${0:}
+	}
+# Reversed for loop
+snippet forr
+	for (var ${2:i} = ${1:arr}.length - 1; $2 >= 0; $2 --) {
+		var ${3:v} = $1[$2];${0:}
+	}
+# While loop
+snippet wh
+	while (${1:/* condition */}) {
+		${0}
+	}
+# Do while loop
+snippet do
+	do {
+		${0}
+	} while (${1:/* condition */});
+# For in loop
+snippet fori
+	for (var ${1:prop} in ${2:object}) {
+		${0:$2[$1]}
+	}
+
+# Objects
+
+# Object Method
+snippet :f
+	${1:method_name}: function (${2:attribute}) {
+		${3}
+	},
+# hasOwnProperty
+snippet has
+	hasOwnProperty(${0})
+# singleton
+snippet sing
+	function ${1:Singleton} (${2:argument}) {
+		// the cached instance
+		var instance;
+
+		// rewrite the constructor
+		$1 = function $1($2) {
+			return instance;
+		};
+
+		// carry over the prototype properties
+		$1.prototype = this;
+
+		// the instance
+		instance = new $1();
+
+		// reset the constructor pointer
+		instance.constructor = $1;
+
+		${0}
+
+		return instance;
+	}
+# Crockford's object function
+snippet obj
+	function object(o) {
+		function F() {}
+		F.prototype = o;
+		return new F();
+	}
+# Define multiple properties
+snippet props
+	var ${1:my_object} = Object.defineProperties(
+		${2:new Object()},
+		{
+			${3:property} : {
+				get : function $1_$3_getter() {
+					// getter code
+				},
+				set : function $1_$3_setter(value) {
+					// setter code
+				},
+				value        : ${4:value},
+				writeable    : ${5:boolean},
+				enumerable   : ${6:boolean},
+				configurable : ${0:boolean}
+			}
+		}
+	);
+# Define single property
+snippet prop
+	Object.defineProperty(
+		${1:object},
+		'${2:property}',
+		{
+			get : function $1_$2_getter() {
+				// getter code
+			},
+			set : function $1_$2_setter(value) {
+				// setter code
+			},
+			value        : ${3:value},
+			writeable    : ${4:boolean},
+			enumerable   : ${5:boolean},
+			configurable : ${0:boolean}
+		}
+	);
+
+# Documentation
+
+# docstring
+snippet /**
+	/**
+	 * ${0:description}
+	 *
+	 */
+snippet @par
+	@param {${1:type}} ${2:name} ${0:description}
+snippet @ret
+	@return {${1:type}} ${0:description}
+
+# JSON
+
+# JSON.parse
+snippet jsonp
+	JSON.parse(${0:jstr});
+# JSON.stringify
+snippet jsons
+	JSON.stringify(${0:object});
+
+# DOM selectors
+
+# Get elements
+snippet get
+	getElementsBy${1:TagName}('${0}')
+# Get element
+snippet gett
+	getElementBy${1:Id}('${0}')
+# Elements by class
+snippet by.
+	${1:document}.getElementsByClassName('${0:class}')
+# Element by ID
+snippet by#
+	${1:document}.getElementById('${0:element ID}')
+# Query selector
+snippet qs
+	${1:document}.querySelector('${0:CSS selector}')
+# Query selector all
+snippet qsa
+	${1:document}.querySelectorAll('${0:CSS selector}')
+
+# Debugging
+snippet de
+	debugger;
+# console.log
+snippet cl
+	console.log(${0});
+# console.debug
+snippet cd
+	console.debug(${0});
+# console.trace
+snippet ct
+	console.trace(${0:label});
+# console.time
+snippet ctime
+	console.time(${0:label});
+# console.assert
+snippet ca
+	console.assert(${1:expression}, ${0:obj});
+# console.dir
+snippet cdir
+	console.dir(${0:obj});
+
+# Misc
+
+# 'use strict';
+snippet us
+	'use strict';
+
+# setTimeout function
+snippet timeout
+	setTimeout(function () {${0}}${2}, ${1:10});
+snippet caller
+	$log.debug('caller:', arguments.callee.caller.name);
+snippet keycodes
+	var KeyCodes = {
+		BACKSPACE : 8,
+		TABKEY : 9,
+		RETURNKEY : 13,
+		ESCAPE : 27,
+		SPACEBAR : 32,
+		LEFTARROW : 37,
+		UPARROW : 38,
+		RIGHTARROW : 39,
+		DOWNARROW : 40,
+	};
+snippet rand
+	var ${1:rand} = Math.floor(Math.random() * ${2:between}) + 1
+snippet todo
+	// todo // ${1:text}
+# alex knowledge thing
+snippet brand
+	brand/s
+		${1:brand_name} -B EN:${2:Brand_Name}
+			${3:tag_name} -T EN:${4:Tag_Name}
+snippet brandt
+	${1:tag_name} -T EN:${2:Tag_Name}
+snippet gc
+	InterestFactory('${1:text}', 'accessibility', '$1');
+	${2:text}
+snippet fact
+	self.$2 = [];
+	function ${1:text}Fact() {
+		var obj = {};
+		self.${2:list}.push(obj);
+	}
+	new $1Fact();
+snippet ob
+	obj.${1:text} = $1;
+snippet dat
+	data.${1:text} = self.$1;
+# Grunt stuff!
+# for Gruntfile parse
+snippet gp
+	<%= ${1:text} %>
+snippet watch
+	watch: {
+		files: ['src/**/*'],
+		tasks: ['default']
+	},
+snip htmlmin
+	htmlmin:{
+		dist: {
+			options: {
+				removeComments: true,
+				collapseWhitespace: true
+			},
+			files: [{
+				expand: true,     // Enable dynamic expansion.
+				cwd: 'src/templates/',      // Src matches are relative to this path.
+				src: ['**/*.html'], // Actual pattern(s) to match.
+				dest: 'dist/templates',   // Destination path prefix.
+			}]
+		}
+	},
+snippet uglify
+	uglify: {
+		options: {
+			// the banner is inserted at the top of the output
+			banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+		},
+		dist: {
+			files: {
+				// destination: files
+				'dist/js/<%= pkg.name %>.js': 'src/**/*.js'
+			}
+		}
+	},
+snippet concat
+	concat: {
+		options: {
+		},
+		js: {
+			dist: {
+				src: ['src/**/*.js'],
+				dest: 'dist/js/<%= pkg.name %>.js'
+			}
+		},
+		html: {
+				src: ['src/**/*.html'],
+				dest: 'dist/templates/<%= pkg.name %>.html'
+		}
+	},
+snippet gruntfile
+	module.exports = function(grunt) {
+		'use strict';
+		grunt.initConfig({
+			pkg: grunt.file.readJSON('package.json'),
+			concat: {
+				options: {
+
+				},
+				js: {
+					dist: {
+						src: ['src/**/*.js'],
+						dest: 'dist/js/<%= pkg.name %>.js'
+					}
+				},
+				html: {
+						src: ['src/**/*.html'],
+						dest: 'dist/templates/<%= pkg.name %>.html'
+				}
+			},
+			uglify: {
+				options: {
+					// the banner is inserted at the top of the output
+					banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+				},
+				dist: {
+					files: {
+						// destination: files
+						'dist/js/<%= pkg.name %>.js': 'src/**/*.js'
+					}
+				}
+			},
+			htmlmin:{
+				dist: {
+					options: {
+						removeComments: true,
+						collapseWhitespace: true
+					},
+					files: [{
+						expand: true,     // Enable dynamic expansion.
+						cwd: 'src/templates/',      // Src matches are relative to this path.
+						src: ['**/*.html'], // Actual pattern(s) to match.
+						dest: 'dist/templates',   // Destination path prefix.
+					}]
+				}
+			},
+			watch: {
+				files: ['src/**/*'],
+				tasks: ['default']
+			}
+		});
+
+		// grunt.loadNpmTasks('grunt-contrib-');
+		grunt.loadNpmTasks('grunt-contrib-jshint');
+		grunt.loadNpmTasks('grunt-contrib-concat');
+		grunt.loadNpmTasks('grunt-contrib-uglify');
+		grunt.loadNpmTasks('grunt-contrib-htmlmin');
+		grunt.loadNpmTasks('grunt-contrib-watch');
+
+		grunt.registerTask('default', ['concat', 'uglify', 'htmlmin']);
+
+	};
+snippet htmlmin
+	htmlmin:{
+		dist: {
+			options: {
+				removeComments: true,
+				collapseWhitespace: true
+			},
+			files: [{
+				expand: true,     // Enable dynamic expansion.
+				cwd: 'src/templates/',      // Src matches are relative to this path.
+				src: ['**/*.html'], // Actual pattern(s) to match.
+				dest: 'dist/templates',   // Destination path prefix.
+			}]
+		}
+	},
+snippet compass
+	compass: {                  // Task
+		dist: {                   // Target
+			options: {              // Target options
+				sassDir: 'sass',
+				cssDir: 'css',
+				environment: 'production'
+			}
+		},
+		dev: {                    // Another target
+			options: {
+				sassDir: 'sass',
+				cssDir: 'css'
+			}
+		}
+	}
+snippet thing
+	{
+		title: '${1}',
+		packages: {
+			free: true,
+			"premium-consumer": true,
+			"premium-retail": true
+		},
+		info: {
+			hasInfo: false,
+			text: ''
+		}
+	},${2:end}
+snippet gbp
+	£
+snippet other
+	new BrandInfoSectionsFact('', '${1}', [true, true, true], ${2:array});
+
