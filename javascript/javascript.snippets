@@ -60,16 +60,15 @@ snippet ter
 # switch
 snippet switch
 	switch (${1:expression}) {
-		case '${2:case}':
+		case ${2:case}:
 			break;
 		default:
 	}
 # case
 snippet case
-	case '${1:case}':
+	case ${1:case}:
 		${2}
 		break;
-	${0}
 # try
 snippet try
 	try {
@@ -275,8 +274,10 @@ snippet keycodes
 		RIGHTARROW : 39,
 		DOWNARROW : 40,
 	};
+snippet random
+	Math.floor(Math.random() * ${1:between}) + 1;
 snippet rand
-	var ${1:rand} = Math.floor(Math.random() * ${2:between}) + 1
+	var ${1:rand} = Math.floor(Math.random() * ${2:between}) + 1;
 snippet todo
 	// todo // ${1:text}
 # alex knowledge thing
@@ -462,4 +463,21 @@ snippet gbp
 	£
 snippet other
 	new BrandInfoSectionsFact('', '${1}', [true, true, true], ${2:array});
-
+snippet err
+	console.error('${1:error in the thing you were doing}', ${2:'no variable'})
+snippet con
+	console.log("${1:Here}: ", ${2} );
+snippet jsonner
+	console.dir(JSON.stringify(${1:json}, null, 2));
+snippet cf
+	console.log(fn, ${1:text})
+snippet while
+	while (i < ${number:text}) {
+		i++;
+	}
+snippet demo
+	var ${1:text}DD = {
+		type: '${2:orange}',
+		title: '${3:text}',
+		content: '${4:text}'
+	};

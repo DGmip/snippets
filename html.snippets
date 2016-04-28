@@ -938,7 +938,7 @@ snippet mdcard
 snippet fuckingngstyle
 	ng-style="{backgroundImage:'url(${1:prefix}'+img.X+')'}"
 snippet flexer
-	flex="${1:50}"
+	<div flex></div>
 snippet defa
 	style='background-color:lightsteelblue;'
 snippet defb
@@ -982,6 +982,8 @@ snippet mdpl
 	<md-progress-linear md-mode="${1:indeterminate}" value="${2:progress}"></md-progress-linear>
 snippet mdpc
 	<md-progress-circular md-mode="${1:indeterminate}" value="${2:progress}"></md-progress-circular>
+snippet spinner
+	<md-progress-circular md-mode="${1:indeterminate}"></md-progress-circular>
 snippet mds
 	<md-slider flex ng-model='${1:model}' min='${2:min}' max='${3:max}'></md-slider>
 snippet working
@@ -1026,3 +1028,72 @@ snippet wi
 	width="400px"
 snippet ngt
 	<ng-transclude></ng-transclude>
+snippet mdib
+	<md-button ng-click="${1:text}" class="md-icon-button" aria-label="${2:text} button">
+		<ng-md-icon class='default' icon="${3:text}" size="24"></ng-md-icon>
+		<md-tooltip>
+			${4:text}
+		</md-tooltip>
+	</md-button>
+snippet mdDialog
+	<md-dialog>
+		<md-toolbar>
+			<div class="md-toolbar-tools {{${1:business|brand}}}" layout='row'>
+				<span flex></span>
+				<md-button ng-click="Close()" class="md-icon-button" aria-label="close button">
+					<ng-md-icon class='light' icon="close" size="24"></ng-md-icon>
+					<md-tooltip>
+						Close
+					</md-tooltip>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-dialog-content layout='row' layout-wrap class="md-padding">
+			content in here
+		</md-dialog-content>
+		<md-dialog-actions>
+			bottom actions here
+		</md-dialog-actions>
+	</md-dialog>
+snippet demoModal
+	${2:controller}.demo.OpenDialog($event, ${1:data})
+snippet ?
+	&#63;
+snippet bolder
+	<li layout='row' layout-align='start start'>
+		<ng-md-icon class='orange' icon="chevron_right" size="32"></ng-md-icon>
+		<span><b>${1}</b></span>
+	</li>
+snippet bra
+	<div id="${1:text}" class="section" layout='column'>
+		<div class="logo" layout='row' layout-align='center center'>
+			<span>Leading <b>Locally</b></span>
+		</div>
+		<div class="text">
+			<h3 class="title">
+				<span>${2:id}</span>
+				<span class="green">${3:orange-bit}</span>
+			</h3>
+			<ul>
+				<li ng-repeat="item in c.${4:list}List" layout='row' layout-align='start start'>
+					<ng-md-icon class='green' icon="chevron_right" size="32"></ng-md-icon>
+					<span>{{item}}</span>
+				</li>
+			</ul>
+		</div>
+		<div flex></div>
+		<div class="footer" layout='column' layout-align='center center'>
+			<span class="address">
+				Leading Locally Ltd, 9 Kensington Road, Douglas, IM1 3ER, Isle of Man, British Isles.
+			</span>
+			<span class="email">
+				<a href="mailto:info@leadinglocally.com">info@leadinglocally.com</a>
+			</span>
+		</div>
+	</div>
+snippet locationTag
+	<ll-location-tag location-name="'${1}'"custom-flag="'${2}'"></ll-location-tag>
+snippet ngcl
+	ng-click="${1}"
+snippet '
+	&#39;

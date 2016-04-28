@@ -124,7 +124,7 @@ snippet ngdc
 			${3:directiveAttrs},
 			compile: function compile(tElement, tAttrs, transclude) {
 				return function (scope, element, attrs) {
-				
+
 				}
 			}
 		};
@@ -162,8 +162,6 @@ snippet when
 		templateUrl: 'templates/views/${2:$1}',
 		controller: '${3:controllerName}'
 	}).
-snippet con
-	console.log("${1:Here}: ", ${2} );
 snippet c
 	console.log( ${1} );
 snippet sc
@@ -176,19 +174,22 @@ snippet template
 	<script id="${1:id}" type="text/ng-template">
 	</script>
 snippet llngd
-	directives.directive('${1:name}', [ ${2:dependancies}, function( ${3:params} ) {
+	directives.directive('${1:name}', [ ${2}, function( ${3} ) {
 		return {
 			scope: true,
 			templateUrl: '${4:$1}.html',
 			restrict: '${5:E}',
+			controller: '',
+			bindToControl: true,
 			link: function(scope, element, attrs) {
-				${6:gogogo}
+				'use-strict';
+				${6}
 			} // end linking
 		}; // end return
 	}]);
 
 snippet deb
-	$log.debug( "${1:id}", ${2:$1} );
+	$log.debug( "${1:id}", ${2} );
 snippet v
 	var ${1:text} = ${2:text};
 snippet http
@@ -246,7 +247,7 @@ snippet llaccordion
 
 snippet cg
 	Fact( '${1:text}', '${2:text}', ${3:text}, '${4:info}');
-snippet mdd
+snippet mddialog
 	$mdDialog.show(
 		$mdDialog.alert()
 			.parent(angular.element(document.querySelector(${1:elementId})))
@@ -257,3 +258,77 @@ snippet mdd
 			.ok('Okay')
 			.targetEvent(ev)
 	);
+snippet mddAdvanced
+	// switch on whether to use fullscreen on all dialogs for card
+	var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+	//
+	$mdDialog.show({
+		controller: DialogController,
+		templateUrl: 'dialog1.tmpl.html',
+		parent: angular.element(document.body),
+		targetEvent: ev,
+		clickOutsideToClose:true,
+		fullscreen: useFullScreen
+	})
+	.then(function(answer) {
+		$scope.status = 'You said the information was "' + answer + '".';
+	}, function() {
+		$scope.status = 'You cancelled the dialog.';
+	});
+snippet functions
+	// start functions
+
+	${1}
+
+	// end functions
+
+snippet parent
+	var parent = element.parent()[0].offsetWidth
+snippet llngc
+	app.controller("${1:text}", function() {
+		'use-strict';
+		var fn = "$1";
+		var self = this;
+		self.test = 'Controller is attached';
+	});
+snippet llngf
+	app.factory('${1:text}', function($http, $q){
+		'use strict';
+		var service = {};
+		return service;
+	});
+snippet llngs
+	services.service('${1:text}', function() {
+		'use-strict';
+		var self = this;
+	});
+snippet llngfactory
+	// get json data from /data/
+	app.factory('${1:text}', function($http, $q){
+		'use strict';
+		var service = {};
+		service.get = function(jsonID) {
+			var url = '${2:path/to/thing/to/get}'
+			var deferred = $q.defer();
+			$http({
+				method: 'GET',
+				url: url
+			}).success(function(data){
+				deferred.resolve(data);
+			}).error(function(){
+				alert('Error getting json, rejected: '+url);
+				deferred.reject("There was an error getting "+url);
+			});
+			return deferred.promise;
+
+		};
+		return service;
+	});
+	//func get() returns a promise, so to use, you have to go
+	// factoryName.get('pricing').then(function(data){
+	//   self.data = data;
+	// })
+
+snippet dsm
+	ds.OpenDemoModal(null, ${1:text});
+
