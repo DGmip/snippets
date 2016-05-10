@@ -1097,3 +1097,26 @@ snippet ngcl
 	ng-click="${1}"
 snippet '
 	&#39;
+snippet mdsw
+	<md-switch ng-model="${1:text}" aria-label="${2:action} switch">${3}</md-switch>
+snippet mdsel
+	</md-input-container>
+		<md-input-container>
+			<label>${1:Choose}</label>
+			<md-select ng-model="ctrl.userState">
+				<md-option ng-repeat="${2:repeat}" value="{{${3:thing}}}">
+					{{${4:thing}}}
+				</md-option>
+			</md-select>
+	</md-input-container>
+snippet ngs
+	ng-switch="${1:expression}" 
+snippet ngsw
+	ng-switch-when="${1:string}" 
+snippet sm
+	<md-button ng-if="" ng-click="" class="md-icon-button" aria-label="show more button">
+		<ng-md-icon class='nudge-3 default' icon="expand_more " size="24"></ng-md-icon>
+	</md-button>
+	<md-button ng-if="" ng-click="" class="md-icon-button" aria-label="show less button">
+		<ng-md-icon class='nudge-3 default' icon="expand_less" size="24"></ng-md-icon>
+	</md-button>

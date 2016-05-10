@@ -300,7 +300,9 @@ snippet llngf
 snippet llngs
 	services.service('${1:text}', function() {
 		'use-strict';
-		var self = this;
+		var fn = "$1"
+		var service = {};
+		return service;
 	});
 snippet llngfactory
 	// get json data from /data/
