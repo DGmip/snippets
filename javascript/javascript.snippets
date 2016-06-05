@@ -464,7 +464,7 @@ snippet gbp
 snippet other
 	new BrandInfoSectionsFact('', '${1}', [true, true, true], ${2:array});
 snippet err
-	console.error('${1:error in the thing you were doing}', ${2:'no variable'})
+	console.error('${1:message}', ${2:var})
 snippet con
 	console.log("${1:Here}: ", ${2} );
 snippet jsonner
@@ -481,3 +481,7 @@ snippet demo
 		title: '${3:text}',
 		content: '${4:text}'
 	};
+snippet al
+	alert('${1:text}');
+snippet skip
+	/*RemoveLogging:skip*/
