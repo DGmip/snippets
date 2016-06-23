@@ -784,9 +784,9 @@ snippet small
 snippet source
 	<source src="${1}" type="${2}" media="${0}" />
 snippet span
-	<span>${0}</span>
+	<span>${1}</span>${2}
 snippet span.
-	<span class="${1}">${0}</span>
+	<span class="${2}">${1}</span>${3}
 snippet span#
 	<span id="${1}">${0}</span>
 snippet strong
@@ -1109,6 +1109,8 @@ snippet mdsel
 				</md-option>
 			</md-select>
 	</md-input-container>
+snippet ngsh
+	ng-show="${1}"${2} 
 snippet ngs
 	ng-switch="${1:expression}" 
 snippet ngsw

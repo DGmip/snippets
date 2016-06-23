@@ -208,8 +208,6 @@ snippet da
 	${1:key}: '=${2:$1}',
 snippet ar
 	ng-repeat="${3:ref} in test.G.Access(test.uid, '${1:in}', '${2:edge}')"
-snippet open
-	G.Open(${1:test.uid})${2:}
 snippet lltoast
 	//scope.LLToast = (text, position, duration, id, icon, colourClass)
 	APIService.LLToast(${1:text});
@@ -247,6 +245,17 @@ snippet llaccordion
 
 snippet cg
 	Fact( '${1:text}', '${2:text}', ${3:text}, '${4:info}');
+snippet mddialogalert
+	$mdDialog.show(
+	$mdDialog.alert()
+		.parent(angular.element(document.querySelector('#popupContainer')))
+		.clickOutsideToClose(true)
+		.title('This is an alert title')
+		.textContent('You can specify some description text in here.')
+		.ariaLabel('Alert Dialog Demo')
+		.ok('Got it!')
+		.targetEvent(ev)
+	);
 snippet mddialog
 	$mdDialog.show(
 		$mdDialog.alert()
@@ -285,11 +294,9 @@ snippet functions
 snippet parent
 	var parent = element.parent()[0].offsetWidth
 snippet llngc
-	app.controller("${1:text}", function() {
+	app.controller("${1:text}", function($scope) {
 		'use-strict';
 		var fn = "$1";
-		var self = this;
-		self.test = 'Controller is attached';
 	});
 snippet llngf
 	app.factory('${1:text}', function($http, $q){
@@ -300,8 +307,9 @@ snippet llngf
 snippet llngs
 	services.service('${1:text}', function() {
 		'use-strict';
-		var fn = "$1"
+		var fn = "$1";
 		var service = {};
+
 		return service;
 	});
 snippet llngfactory
@@ -342,3 +350,25 @@ snippet closeAnswer
 	self.answer = function(answer) {
 		$mdDialog.hide(answer);
 	};
+snippet open
+	GraphService.Open(${1:id}, ${2:fn}, function(){
+		GraphService.Get(${3:id}, function(data){
+			// do stuff with data
+		});
+	});
+snippet prom
+	var deferred = $q.defer();
+	// get stuff then...
+	deferred.resolve(data);
+	// error shit
+	deferred.reject("error message", data);
+	// then
+	return deferred.promise;
+snippet navigate
+	NavigateService.navigate(${1:url}, ${2:route}, ${3:hash}, ${4:query}, ${5:newWindowBool});
+snippet post
+	CrudService.modulePost('${1:module}', '${2:route}', function(data){
+		console.log("${3:thing} Success:", data );
+	}, data);
+
+
