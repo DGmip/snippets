@@ -255,6 +255,7 @@ snippet bench benchmark function
 		}
 	}
 	${0}
+# start ben stuff
 snippet my
 	"github.com/dgmip/${1}"
 
@@ -296,42 +297,111 @@ snippet template
 snippet bra
 	"${1:text}": []string{"${2:text}","${3:text}","${4:text}"},
 snippet '
-	"
+	&#39;
+# gaml start
 snippet col
 	ng.COL()${2}
+snippet col.
+	ng.COL().Class("${1}")${2}
+snippet col.a
+	ng.COL().Class("${1}").Align("${2:start}", "${3:center}")${4}
 snippet row
 	ng.ROW()${2}
+snippet row.
+	ng.ROW().Class("${1}")${2}
 snippet ngb
-	ng.B()${1}
+	ng.B().Inner("${1}")
 snippet ngd
 	ng.DIRECTIVE("${1}")${2}
 snippet divi
-	ng.DIVIDER(${1:16}).${2}
+	ng.DIVIDER(${1:16}),${2}
+snippet div
+	ng.DIV()${1}
+snippet div.
+	ng.DIV().Class("${1}")${2}
+snippet ngcla
+	.NgClass("${1}")${2}
 snippet but
 	ng.BUTTON()${1}
-snippet spa
+snippet but.
+	ng.BUTTON().Class("${1}")${2}
+snippet mdib
+	ng.BUTTON().Class("md-icon-button")${1}
+snippet arlab
+	.AriaLabel("${1}")${2}
+snippet span
 	ng.SPAN()${1}
-snippet inp
-	ng.INPUT("${1}")
+snippet spani
+	ng.SPAN().Inner("${1}"),${2}
+snippet spant
+	ng.SPAN().Interpolate("${1}")${2}
+snippet span.
+	ng.SPAN().Class("${1}").Inner("${2}"),
+snippet mdinp
+	ng.INPUT("${1:label}", "${2:model}")
+snippet input
+	ng.NORMALINPUT("${1:type}", "${2:placeholder}", "${3:model}")${4}
+snippet mdsidenav
+	ng.SIDENAV("${1:md-component-id}")${2}
+snippet layout
+	.Layout("${1:row}")${2}
+snippet mdtoolbar
+	ng.TOOLBAR()${1}
+snippet mdcontent
+	ng.CONTENT().Add(${1}), // md-content end
+snippet mdsel
+	ng.MDSELECT("${1:model}", "${2:placeholder}")${3}
+snippet mdopt
+	ng.MDOPTION("${1:value}")${2}
+snippet pre
+	ng.PRE("${1}")${2}
+snippet ngp
+	ng.P()${1}
+snippet ngp.
+	ng.P().Class("${1}")${2}
+snippet mdprogc
+	ng.MDPROGRESSCIRCULAR("${1:indeterminate}", "${2:value}")
 snippet ngh
 	ng.H(${1})
+snippet ngh.
+	ng.H(${1}).Class("${2}")
 snippet nga
-	ng.A().Attr("href", ${1:href})${2}
+	ng.A().Attr("href", "${1:href}")${2}
 snippet ngli
 	ng.LI()${1}
+snippet nglia
+	ng.LI().Layout("row").Align("start center")${1}
+snippet ngol
+	ng.OL()${1}
 snippet ngul
 	ng.UL()${1}
 snippet ngf
 	ng.FORM("${1:fuck-knows}")
 snippet ico
-	ng.ICONS("${1:icon}")${2}
+	ng.ICONS("${1:icon}"),${2}
+snippet icor
+	ng.ICONS("${1:icon}")RAttr("${2:size}", "${3}")${4}
+snippet ico.
+	ng.ICONS("${1:icon}").Class("${2}")${3}
 snippet ngtt
 	ng.TOOLTIP("${1:text}")${2}
+snippet bre
+	ng.BR(),${1}
+snippet mdtabs
+	ng.MDTABS()${1}
+snippet tab
+	ng.MDTAB("${1:label}")${2}
+snippet inlinestyles
+	ng.INLINESTYLES("${1}")${2}
+snippet id
+	.Id("${1}")${2}
 snippet cla
 	.Class("${1}")${2}
 snippet nam
 	.Name("${1}")${2}
-snippet con
+snippet dev
+	Dev_Info("${1}"),
+snippet ngc
 	.Controller("${1}")${2}
 snippet fle
 	.Flex(${1:-1})${2}
@@ -340,19 +410,41 @@ snippet ini
 snippet ali
 	.Align("${1:start} ${2:center}")${3}
 snippet add
-	.Add(${1})${2}
+	.Add(${1}),
+snippet addc
+	.Add(${2}), // ${1} end
 snippet sty
-	.Style("${1}")${2}
+	.Style("${1}", "${2}")${3}
+snippet ngsty
+	.NgStyle("${1}")${2}
+snippet ngbg
+	.BackgroundImage("${1}")${2}
 snippet cli
-	.Click("${1}")${2}
+	.NgClick("${1}")${2}
 snippet inn
 	.Inner("${1}")${2}
 snippet int
 	.Interpolate("${1}")${2}
 snippet att
+	.Attr("${1}")${2}
+snippet rat
+	.RAttr("${1}", "${2}")${3}
+snippet attr
 	.Attr("${1}", "${2}")${3}
+snippet ngmod
+	.NgModel("${1}")${2}
+snippet ngent
+	.NgEnter("${1}")${2}
+snippet ngkey
+	.NgKeyup("${1}")${2}
+snippet ngblu
+	.NgBlur("${1}")${2}
+snippet ngfoc
+	.NgFocus("${1}")${2}
+snippet dirs
+	.AttrDirs("${1}", "${2}"${3})${4}
 snippet if
-	.If("${1}")${2}
+	.NgIf("${1}")${2}
 snippet ngr
 	.NgRepeat("${1}")${2}
 snippet ngsh
@@ -360,3 +452,20 @@ snippet ngsh
 snippet ngimports
 	"github.com/leadinglocally/microservices/ng/core"
 	"github.com/leadinglocally/microservices/ng/components"
+snippet devtit
+	ng.SPAN().Add(
+		ng.B().Inner("${1:shit}"),
+	),
+	ng.SPAN().Interpolate("${2:$1}"),
+snippet ipsum
+	Plaid flannel thundercats, magna photo booth banjo sartorial godard tilde. Ut PBR&B qui 8-bit, nostrud delectus four dollar toast cardigan nesciunt mixtape. Nostrud put a bird on it synth drinking vinegar. Mumblecore delectus chicharrones, bicycle rights church-key before they sold out portland cillum aesthetic placeat. Portland banjo aliquip lo-fi ethical. Biodiesel neutra brunch fixie meditation. Sed anim cray, yuccie viral velit enim tilde trust fund typewriter kogi.
+snippet shortip
+	Plaid flannel thundercats, magna photo booth banjo sartorial godard tilde.
+snippet sect
+	ng.COL().Id("${1}").Class("${2:section}").Align("${3:center} ${4:center}").NgStyle("sectionStyle").Attr("layout-fill")${5}
+snippet ngprevt
+	components.NgPreviewTag("${1:display}", "${2:tagtype}", ${3:endorsements int}),
+snippet ngloct
+	components.NgLocationTag("${1:location display name}", "${2:flag code}")
+# gaml end
+# end ben stuff
