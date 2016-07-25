@@ -9,3 +9,14 @@ bower_components/
 node_modules/
 *~
 tags
+*.swo
+*.swp
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+bower_components/
+node_modules/
+*~
+tags

@@ -149,7 +149,7 @@ snippet fr
 	${0}
 # function simple
 snippet fun
-	func ${1:funcName}(${2}) ${3:error} {
+	func ${1:funcName}(${2}) ${3:returns} {
 		${4}
 	}
 	${0}
@@ -170,6 +170,8 @@ snippet pl
 # make
 snippet mk
 	make(${1:[]string}, ${0:0})
+snippet msi
+	${0} := make(map[string]int)
 # map
 snippet mp
 	map[${1:string}]${0:int}
@@ -267,10 +269,7 @@ snippet go
 	package ${1:main}
 
 	import (
-		"${1:fmt}"
-	)
-
-	const (
+		"${2:fmt}"
 	)
 snippet cr
 	// --comment request --  ${1:text}
@@ -279,8 +278,8 @@ snippet cd
 snippet httprouter
 	github.com/julienschmidt/httprouter
 snippet range
-	for ${1:_}, ${2:x} := range ${3:x}{
-	}${4:}
+	for ${1:_}, ${2:x} := range ${3:x}{${4:}
+	}
 snippet handler
 	func ${1:handlerName}Handler(w http.ResponseWriter, r *http.Request){
 	}
@@ -299,6 +298,7 @@ snippet bra
 snippet '
 	&#39;
 # gaml start
+# gaml start elements start
 snippet col
 	ng.COL()${2}
 snippet col.
@@ -343,8 +343,9 @@ snippet input
 	ng.NORMALINPUT("${1:type}", "${2:placeholder}", "${3:model}")${4}
 snippet mdsidenav
 	ng.SIDENAV("${1:md-component-id}")${2}
-snippet layout
-	.Layout("${1:row}")${2}
+snippet nginc
+	ng.INCLUDE().Src(${1})
+#gaml elements end
 snippet mdtoolbar
 	ng.TOOLBAR()${1}
 snippet mdcontent
@@ -369,6 +370,10 @@ snippet nga
 	ng.A().Attr("href", "${1:href}")${2}
 snippet ngli
 	ng.LI()${1}
+snippet ngll
+	ng.LI().Add(
+		ng.A().Attr("href", "${1:href}").Inner(${2})
+	),
 snippet nglia
 	ng.LI().Layout("row").Align("start center")${1}
 snippet ngol
@@ -393,6 +398,10 @@ snippet tab
 	ng.MDTAB("${1:label}")${2}
 snippet inlinestyles
 	ng.INLINESTYLES("${1}")${2}
+# gaml elemnents end
+# gaml attrs start
+snippet layout
+	.Layout("${1:row}")${2}
 snippet id
 	.Id("${1}")${2}
 snippet cla
@@ -452,11 +461,6 @@ snippet ngsh
 snippet ngimports
 	"github.com/leadinglocally/microservices/ng/core"
 	"github.com/leadinglocally/microservices/ng/components"
-snippet devtit
-	ng.SPAN().Add(
-		ng.B().Inner("${1:shit}"),
-	),
-	ng.SPAN().Interpolate("${2:$1}"),
 snippet ipsum
 	Plaid flannel thundercats, magna photo booth banjo sartorial godard tilde. Ut PBR&B qui 8-bit, nostrud delectus four dollar toast cardigan nesciunt mixtape. Nostrud put a bird on it synth drinking vinegar. Mumblecore delectus chicharrones, bicycle rights church-key before they sold out portland cillum aesthetic placeat. Portland banjo aliquip lo-fi ethical. Biodiesel neutra brunch fixie meditation. Sed anim cray, yuccie viral velit enim tilde trust fund typewriter kogi.
 snippet shortip
@@ -467,5 +471,59 @@ snippet ngprevt
 	components.NgPreviewTag("${1:display}", "${2:tagtype}", ${3:endorsements int}),
 snippet ngloct
 	components.NgLocationTag("${1:location display name}", "${2:flag code}")
+snippet brac
+	<!! .${1:thing} !!>
 # gaml end
 # end ben stuff
+# start alex code snippets
+snippet httperr
+	app.client.HttpError(fn, res, "${0:error text}", 400); return
+snippet httpred
+	http.Redirect(res, r, "/"+rc.Language.Code+"/${1:url}", 308)
+snippet ngelefunc
+	func (rc *RequestContext) ${1:Elename}() *ng.ELEMENT {
+		${2}
+	}
+snippet logstr
+	app.client.Debug(fn, ${1})
+snippet logrand
+	app.client.DebugJSON(fn, ${1})
+snippet logerr
+	app.client.Error(fn, ${1})
+snippet logstrerr
+	app.client.NewError(fn, ${1})
+snippet page
+	package pages
+
+	import 	(
+			"github.com/leadinglocally/microservices/ng/core"
+			// "github.com/leadinglocally/microservices/ng/components"
+			)
+
+	func (rc *RequestContext) ${1:page}(data interface{}) *ng.ELEMENT {
+		ele := ng.ROW().Id("").Controller("AboutCtrl").SetData(data)
+		return ele.Add(
+			ng.COL().Inner("${2:$1}"),
+		)
+	}
+snippet lang
+	" + rc.Language.Code + "
+snippet route
+	case "${1:route-name}":
+
+		title := "${2:$1}"
+
+		app.RenderSSR(rc, res, rc.${3:function}, title, nil, false, false)
+		return
+snippet assert
+	${1:test}, ok := ${2:i}.(${3:string}); if !ok { reflect.TypeOf(i).String() ;continue}
+# gaml repo start
+snippet head
+
+	// --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+	//  ${1:title} - http://www.w3schools.com/tags/ref_av_dom.asp
+	// --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
+snippet sh
+	Moved to html_sharedAttributes.go because of conflict
+# gaml repo end
