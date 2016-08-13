@@ -17,6 +17,10 @@ snippet bp
 		${2:text}
 snippet hello
 	background-color: $orange
+snippet w
+	width: ${1:20}px
+snippet h
+	height: ${1:20}px
 snippet wh
 	width: ${1:20}px
 	height: ${2:$1}px
@@ -74,11 +78,18 @@ snippet brr
 	+border-radius(${1:4}px)
 snippet br
 	+border-top-left-radius(${1:int}px)
-	+border-top-right-radius($1px)
 	+border-bottom-left-radius($1px)
 	+border-bottom-right-radius($1px)
+	+border-top-right-radius($1px)
+snippet icon
+	ng-md-icon
+		svg
+			fill: ${1:$light-grey}
+snippet hov
+	&:hover
+		${1}
 snippet ff
-	font-family: ${1:ubuntu}
+	font-family: ${1:"poppins-regular"}
 snippet fs
 	font-size: ${1:1}em
 snippet bgi
@@ -123,3 +134,17 @@ snippet ti
 	text-indent: ${1:1em}
 snippet c
 	color: ${1:white}
+snippet borr
+	border-right: 1px solid ${1:$lighter-grey}
+snippet borl
+	border-left: 1px solid ${1:$lighter-grey}
+snippet hide
+	visibility: hidden
+snippet show
+	visibility: visible
+snippet zi
+	z-index: ${1:20}
+snippet abs
+	position: absolute
+	top: ${1}
+	left: ${2}

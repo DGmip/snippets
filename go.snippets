@@ -272,9 +272,9 @@ snippet go
 		"${2:fmt}"
 	)
 snippet cr
-	// --comment request --  ${1:text}
+	// -- comment request --  ${1:text}
 snippet cd
-	// --comment request --  describe the file
+	// -- comment request --  describe the role of the file
 snippet httprouter
 	github.com/julienschmidt/httprouter
 snippet range
@@ -300,108 +300,117 @@ snippet '
 # gaml start
 # gaml start elements start
 snippet col
-	ng.COL()${2}
+	g.MdCOL("${1} ${2}")${3}
+snippet col#
+	g.MdCOL().Id("${1}")${2}
 snippet col.
-	ng.COL().Class("${1}")${2}
+	g.MdCOL().Class("${1}")${2}
 snippet col.a
-	ng.COL().Class("${1}").Align("${2:start}", "${3:center}")${4}
+	g.MdCOL("${1:start} ${2:center}").Class("${3}")${4}
 snippet row
-	ng.ROW()${2}
+	g.MdROW("${1:start} ${2:center}")${2}
+snippet row#
+	g.MdROW("${1:start} ${2:center}").Id("${3}")${4}
 snippet row.
-	ng.ROW().Class("${1}")${2}
+	g.MdROW("${1:start} ${2:center}").Class("${3}")${4}
 snippet ngb
-	ng.B().Inner("${1}")
+	g.B().Inner("${1}")
 snippet ngd
-	ng.DIRECTIVE("${1}")${2}
+	g.DIRECTIVE("${1}")${2}
 snippet divi
-	ng.DIVIDER(${1:16}),${2}
+	g.MdDIVIDER(${1:16}),${2}
 snippet div
-	ng.DIV()${1}
+	g.DIV()${1}
 snippet div.
-	ng.DIV().Class("${1}")${2}
+	g.DIV().Class("${1}")${2}
 snippet ngcla
 	.NgClass("${1}")${2}
 snippet but
-	ng.BUTTON()${1}
+	g.MdBUTTON()${1}
 snippet but.
-	ng.BUTTON().Class("${1}")${2}
+	g.MdBUTTON().Class("${1}")${2}
 snippet mdib
-	ng.BUTTON().Class("md-icon-button")${1}
+	g.MdBUTTON().Class("md-icon-button")${1}
 snippet arlab
 	.AriaLabel("${1}")${2}
 snippet span
-	ng.SPAN()${1}
+	g.SPAN("${1}")${2}
 snippet spani
-	ng.SPAN().Inner("${1}"),${2}
+	g.SPAN().Inner("${1}"),${2}
 snippet spant
-	ng.SPAN().Interpolate("${1}")${2}
+	g.SPAN().Interpolate("${1}")${2}
 snippet span.
-	ng.SPAN().Class("${1}").Inner("${2}"),
+	g.SPAN("${2}").Class("${1}"),
 snippet mdinp
-	ng.INPUT("${1:label}", "${2:model}")
+	g.INPUT("${1:label}", "${2:model}")
 snippet input
-	ng.NORMALINPUT("${1:type}", "${2:placeholder}", "${3:model}")${4}
+	g.INPUT()${1}
 snippet mdsidenav
-	ng.SIDENAV("${1:md-component-id}")${2}
+	g.SIDENAV("${1:md-component-id}")${2}
 snippet nginc
-	ng.INCLUDE().Src(${1})
-#gaml elements end
+	g.INCLUDE().Src(${1})
 snippet mdtoolbar
-	ng.TOOLBAR()${1}
+	g.TOOLBAR()${1}
 snippet mdcontent
-	ng.CONTENT().Add(${1}), // md-content end
+	g.CONTENT().Add(${1}), // md-content end
 snippet mdsel
-	ng.MDSELECT("${1:model}", "${2:placeholder}")${3}
+	g.MDSELECT("${1:model}", "${2:placeholder}")${3}
 snippet mdopt
-	ng.MDOPTION("${1:value}")${2}
+	g.MDOPTION("${1:value}")${2}
 snippet pre
-	ng.PRE("${1}")${2}
+	g.PRE("${1}")${2}
+snippet gimg
+	g.IMG()${1}
+snippet gifr
+	g.IFRAME()${1}
 snippet ngp
-	ng.P()${1}
+	g.P()${1}
 snippet ngp.
-	ng.P().Class("${1}")${2}
+	g.P().Class("${1}")${2}
 snippet mdprogc
-	ng.MDPROGRESSCIRCULAR("${1:indeterminate}", "${2:value}")
+	g.MDPROGRESSCIRCULAR("${1:indeterminate}", "${2:value}")
 snippet ngh
-	ng.H(${1})
+	g.H(${1})
 snippet ngh.
-	ng.H(${1}).Class("${2}")
+	g.H(${1}).Class("${2}")
 snippet nga
-	ng.A().Attr("href", "${1:href}")${2}
+	g.A().Attr("href", "${1:href}")${2}
 snippet ngli
-	ng.LI()${1}
+	g.LI()${1}
 snippet ngll
-	ng.LI().Add(
-		ng.A().Attr("href", "${1:href}").Inner(${2})
+	g.LI().Add(
+		g.A().Attr("href", "${1:href}").Inner(${2})
 	),
 snippet nglia
-	ng.LI().Layout("row").Align("start center")${1}
+	g.LI().Layout("row").Align("start center")${1}
 snippet ngol
-	ng.OL()${1}
+	g.OL()${1}
 snippet ngul
-	ng.UL()${1}
+	g.UL()${1}
 snippet ngf
-	ng.FORM("${1:fuck-knows}")
+	g.FORM("${1:fuck-knows}")
 snippet ico
-	ng.ICONS("${1:icon}"),${2}
+	g.MdICON("${1:icon}"${2}),${3}
 snippet icor
-	ng.ICONS("${1:icon}")RAttr("${2:size}", "${3}")${4}
+	g.ICONS("${1:icon}")RAttr("${2:size}", "${3}")${4}
 snippet ico.
-	ng.ICONS("${1:icon}").Class("${2}")${3}
-snippet ngtt
-	ng.TOOLTIP("${1:text}")${2}
+	g.ICONS("${1:icon}").Class("${2}")${3}
+snippet mdtt
+	g.MdTOOLTIP("${1:text}")${2}
 snippet bre
-	ng.BR(),${1}
+	g.BR(),${1}
 snippet mdtabs
-	ng.MDTABS()${1}
+	g.MDTABS()${1}
 snippet tab
-	ng.MDTAB("${1:label}")${2}
+	g.MDTAB("${1:label}")${2}
 snippet inlinestyles
-	ng.INLINESTYLES("${1}")${2}
+	g.INLINESTYLES("${1}")${2}
 # gaml elemnents end
 # gaml attrs start
 snippet layout
 	.Layout("${1:row}")${2}
+snippet layoutf
+	.LayoutFill()${1}
 snippet id
 	.Id("${1}")${2}
 snippet cla
@@ -409,9 +418,11 @@ snippet cla
 snippet nam
 	.Name("${1}")${2}
 snippet dev
-	Dev_Info("${1}"),
+	rc.Dev_Info("${1}"),
 snippet ngc
 	.Controller("${1}")${2}
+snippet flexer
+	g.DIV().Flex(-1),
 snippet fle
 	.Flex(${1:-1})${2}
 snippet ini
@@ -423,11 +434,7 @@ snippet add
 snippet addc
 	.Add(${2}), // ${1} end
 snippet sty
-	.Style("${1}", "${2}")${3}
-snippet ngsty
-	.NgStyle("${1}")${2}
-snippet ngbg
-	.BackgroundImage("${1}")${2}
+	.Style("${1}")${3}
 snippet cli
 	.NgClick("${1}")${2}
 snippet inn
@@ -465,23 +472,25 @@ snippet ipsum
 	Plaid flannel thundercats, magna photo booth banjo sartorial godard tilde. Ut PBR&B qui 8-bit, nostrud delectus four dollar toast cardigan nesciunt mixtape. Nostrud put a bird on it synth drinking vinegar. Mumblecore delectus chicharrones, bicycle rights church-key before they sold out portland cillum aesthetic placeat. Portland banjo aliquip lo-fi ethical. Biodiesel neutra brunch fixie meditation. Sed anim cray, yuccie viral velit enim tilde trust fund typewriter kogi.
 snippet shortip
 	Plaid flannel thundercats, magna photo booth banjo sartorial godard tilde.
-snippet sect
-	ng.COL().Id("${1}").Class("${2:section}").Align("${3:center} ${4:center}").NgStyle("sectionStyle").Attr("layout-fill")${5}
 snippet ngprevt
 	components.NgPreviewTag("${1:display}", "${2:tagtype}", ${3:endorsements int}),
+snippet ngsty
+	.NgStyle("${1}")${2}
 snippet ngloct
 	components.NgLocationTag("${1:location display name}", "${2:flag code}")
-snippet brac
-	<!! .${1:thing} !!>
+snippet clo
+	.NgCloak()${1}
 # gaml end
 # end ben stuff
 # start alex code snippets
+snippet getprop
+	${1:propName}, ok := entity["${2:$1}"].(string); if !ok { panic(fn) }
 snippet httperr
 	app.client.HttpError(fn, res, "${0:error text}", 400); return
 snippet httpred
 	http.Redirect(res, r, "/"+rc.Language.Code+"/${1:url}", 308)
-snippet ngelefunc
-	func (rc *RequestContext) ${1:Elename}() *ng.ELEMENT {
+snippet gamlfunc
+	func (rc *RequestContext) ${1:Elename}() *g.ELEMENT {
 		${2}
 	}
 snippet logstr
@@ -501,7 +510,7 @@ snippet page
 			)
 
 	func (rc *RequestContext) ${1:page}(data interface{}) *ng.ELEMENT {
-		ele := ng.ROW().Id("").Controller("AboutCtrl").SetData(data)
+		ele := g.MdROW("${1:start} ${2:center}").Id("").Controller("AboutCtrl").SetData(data)
 		return ele.Add(
 			ng.COL().Inner("${2:$1}"),
 		)
@@ -516,7 +525,7 @@ snippet route
 		app.RenderSSR(rc, res, rc.${3:function}, title, nil, false, false)
 		return
 snippet assert
-	${1:test}, ok := ${2:i}.(${3:string}); if !ok { reflect.TypeOf(i).String() ;continue}
+	${1:test}, ok := ${2:i}.(${3:string}); if !ok { reflect.TypeOf(${4:$2}).String() }
 # gaml repo start
 snippet head
 
@@ -524,6 +533,22 @@ snippet head
 	//  ${1:title} - http://www.w3schools.com/tags/ref_av_dom.asp
 	// --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
-snippet sh
-	Moved to html_sharedAttributes.go because of conflict
+snippet gele
+	func (rc *RequestContext) ${1:Element_Name}(data interface{}) *g.ELEMENT {${2}
+snippet bg
+	.BackgroundImage("${1:url}", "${2:size}", "${3:pos}")
+snippet del
+	g.Delims("${1:key}")
+snippet dell
+	<!! .${1:thing} !!>
 # gaml repo end
+snippet random
+	"math/rand"
+	"time"
+	rand.Seed(time.Now().UTC().UnixNano())
+	// answers[rand.Intn(len(answers))]
+snippet what
+	// what is this
+snippet blank
+	// remove me when done developing - I just stop the 'declared and not used error' from pissing you off
+	_ = ${1:var}
