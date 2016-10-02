@@ -232,24 +232,24 @@ snippet qsa
 # Debugging
 snippet de
 	debugger;
-# console.log
+# window.console.log
 snippet cl
-	console.log(${0});
-# console.debug
+	window.console.log(${0});
+# window.console.debug
 snippet cd
-	console.debug(${0});
-# console.trace
+	window.console.debug(${0});
+# window.console.trace
 snippet ct
-	console.trace(${0:label});
-# console.time
+	window.console.trace(${0:label});
+# window.console.time
 snippet ctime
-	console.time(${0:label});
-# console.assert
+	window.console.time(${0:label});
+# window.console.assert
 snippet ca
-	console.assert(${1:expression}, ${0:obj});
-# console.dir
+	window.console.assert(${1:expression}, ${0:obj});
+# window.console.dir
 snippet cdir
-	console.dir(${0:obj});
+	window.console.dir(${0:obj});
 
 # Misc
 
@@ -464,13 +464,13 @@ snippet gbp
 snippet other
 	new BrandInfoSectionsFact('', '${1}', [true, true, true], ${2:array});
 snippet err
-	console.error('${1:message}', ${2:var})
+	window.console.error('${1:message}', ${2:var})
 snippet con
-	console.log("${1:Here}: ", ${2} );
+	window.console.log("${1:Here}: ", ${2} );
 snippet jsonner
-	console.dir(JSON.stringify(${1:json}, null, 2));
+	window.console.dir(JSON.stringify(${1:json}, null, 2));
 snippet cf
-	console.log(fn, ${1:text})
+	window.console.log(fn, ${1:text})
 snippet while
 	while (i < ${number:text}) {
 		i++;
