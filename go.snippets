@@ -191,9 +191,11 @@ snippet pa
 snippet pn
 	panic("${0:msg}")
 # print
-snippet pr
+snippet pf
 	f := "${1:formatting}"
 	fmt.Printf(f, ${2})
+snippet pr
+	fmt.Print(${1})
 # range
 snippet rn
 	range ${0}
@@ -547,8 +549,27 @@ snippet random
 	"time"
 	rand.Seed(time.Now().UTC().UnixNano())
 	// answers[rand.Intn(len(answers))]
-snippet what
-	// what is this
+# ben go snippets
 snippet blank
 	// remove me when done developing - I just stop the 'declared and not used error' from pissing you off
 	_ = ${1:var}
+snippet checker
+	func check(err error) {
+		if err != nil {
+			panic(err)
+		}
+	}
+
+snippet ch
+	;check(err)
+snippet readfile
+	file, err := os.Open("file.go") // For read access.
+	if err != nil {
+		log.Fatal(err)
+	}
+# read user input
+snippet reader
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter text: ")
+	text, _ := reader.ReadString('\n')
+	fmt.Println(text)

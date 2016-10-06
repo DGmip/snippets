@@ -1,3 +1,13 @@
 snippet dir
 	- url: /${1:text}
 		static_dir: ${2:path/path}
+snippet files
+	- url: /${1:dir}/(.*\.js)
+		mime_type: text/javascript
+		static_files: ${2:$1}/scripts/\1
+		upload: ${3:$1}/(.*\.js)
+snippet ur
+	- url: ${1}
+snippet sf
+	static_files: dist/scripts/\1
+
