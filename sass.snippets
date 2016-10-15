@@ -2,7 +2,7 @@ snippet anno
 	margin: 0px
 	padding: 0px
 snippet p
-	padding: ${1:text}px
+	padding: ${1:10}px
 snippet pr
 	padding-right: ${1:20}px
 snippet pl
@@ -61,7 +61,7 @@ snippet hstack
 	h1, h2, h3, h4, h5, h6
 		${1:text}
 snippet mar
-	margin: ${1:text}px
+	margin: ${1:10}px
 snippet trans
 	+transition-property(${1:all})
 	+transition-duration(${2:0.4s})
@@ -148,3 +148,8 @@ snippet abs
 	position: absolute
 	top: ${1}
 	left: ${2}
+snippet fst
+	font-style: ${1:italic}
+snippet fontface
+	+font-face("${1:namespace}", font-files("${2:theFiles}"))
+

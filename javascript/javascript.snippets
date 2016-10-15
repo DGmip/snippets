@@ -291,10 +291,10 @@ snippet gc
 	InterestFactory('${1:text}', 'accessibility', '$1');
 	${2:text}
 snippet fact
-	self.$2 = [];
+	this.$2 = [];
 	function ${1:text}Fact() {
 		var obj = {};
-		self.${2:list}.push(obj);
+		this.${2:list}.push(obj);
 	}
 	new $1Fact();
 snippet ob

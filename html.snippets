@@ -242,8 +242,8 @@ snippet cite
 	<cite>${0}</cite>
 snippet code
 	<code>${0}</code>
-snippet col
-	<col />
+# snippet col
+# 	<col />
 snippet col+
 	<col />
 	col+
@@ -909,12 +909,18 @@ snippet mdinput
 	</md-input-container>
 snippet row
 	<div layout='row'>
+	</div>
 snippet rowe
 	</div/> <!-- row end -->
 snippet la
 	layout-align="${1:start} ${2:center}"
-snippet flex
+snippet flexer
 	<span flex></span>
+snippet fl
+	flex="${1}"
+snippet divfl
+	<div flex="${1}">
+	</div>
 snippet st
 	style="${1:text}"
 snippet ll
@@ -937,8 +943,6 @@ snippet mdcard
 	</md-card>
 snippet fuckingngstyle
 	ng-style="{backgroundImage:'url(${1:prefix}'+img.X+')'}"
-snippet flexer
-	<div flex></div>
 snippet defa
 	style='background-color:lightsteelblue;'
 snippet defb
@@ -1132,4 +1136,23 @@ snippet iconInput
 		<ng-md-icon class='default' icon="send" size="24"></ng-md-icon>
 		<input ng-model="model" type="text">
 	</md-input-container>
-
+snippet mdiv
+	<div layout='${1}' layout-align='${2} center'>
+		${3}
+	</div>
+snippet fee
+	<div class="feedback">
+		<h3 class="feedback title">
+			${1}
+		</h3>
+		<div class="feedback body">
+			${2}
+		</div>
+		<div class="feedback signature">
+			${3}
+		</div>
+	</div>
+snippet ll
+	<li><a href="#/${1:url}">${2:display}</a></li>
+snippet copy
+	&copy;
