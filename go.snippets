@@ -482,6 +482,8 @@ snippet ngloct
 	components.NgLocationTag("${1:location display name}", "${2:flag code}")
 snippet clo
 	.NgCloak()${1}
+snippet data
+	d, ok := data.(map[string]interface{}); if !ok { panic(reflect.TypeOf(data).String() + " EXPECTED MAP STRING INTERFACE") }
 # gaml end
 # end ben stuff
 # start alex code snippets
