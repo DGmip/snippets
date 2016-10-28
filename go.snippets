@@ -372,7 +372,7 @@ snippet ngp
 snippet ngp.
 	g.P().Class("${1}")${2}
 snippet mdprogc
-	g.MDPROGRESSCIRCULAR("${1:indeterminate}", "${2:value}")
+	g.MdPROGRESSCIRCULAR("${1:indeterminate}", "${2:value}")
 snippet ngh
 	g.H(${1})
 snippet ngh.
@@ -579,3 +579,23 @@ snippet reader
 	fmt.Println(text)
 snippet girlfriend
 	"github.com/golangdaddy/gf"
+snippet registert
+	"web_${1:name(key)}":					func (req *gf.Request) *gf.ResponseStatus {
+
+		ok, app := Guest(req.Path(), req.Res, req.R); if !ok { return nil }
+		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
+
+		title := "${2:$1}"
+		return app.RenderSSR(req, rc.web_$1, title, nil, false, false)
+
+	},
+snippet register
+	"web_${1:name(key)}":					func (req *gf.Request) *gf.ResponseStatus {
+
+		ok, app := Guest(req.Path(), req.Res, req.R); if !ok { return nil }
+		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
+
+		title := "${2:$1}"
+		return app.RenderSSR(req, rc.web_$1, title, nil, true, false)
+
+	},
