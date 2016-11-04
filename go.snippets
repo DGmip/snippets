@@ -34,7 +34,6 @@ snippet cs
 # const
 snippet c
 	const ${1:NAME} = ${0:0}
-
 # constants with iota
 snippet co
 	const (
@@ -77,6 +76,7 @@ snippet gpl
 # int
 snippet i
 	int
+snippet appengine
 # import normal package
 snippet im
 	import (
@@ -262,7 +262,6 @@ snippet bench benchmark function
 # start ben stuff
 snippet my
 	"github.com/dgmip/${1}"
-
 snippet err
 	if err != nil {
 		${1:text}
@@ -278,12 +277,9 @@ snippet cr
 snippet cd
 	// -- comment request --  describe the role of the file
 snippet httprouter
-	github.com/julienschmidt/httprouter
+	"github.com/julienschmidt/httprouter"
 snippet range
 	for ${1:_}, ${2:x} := range ${3:x}{${4:}
-	}
-snippet handler
-	func ${1:handlerName}Handler(w http.ResponseWriter, r *http.Request){
 	}
 snippet hf
 	http.HandleFunc("/${1:route}/", $1${2:Handler})
@@ -295,6 +291,8 @@ snippet fprint
 	fmt.Fprint(w, ${1:var})
 snippet template
 	var ${1:var}Template = template.Must(template.New("${2:$1}").Parse(${3:file}))
+snippet gtemplate
+	template.Add("/${1:name}").Template("dist/pages/${2:$1}")
 snippet bra
 	"${1:text}": []string{"${2:text}","${3:text}","${4:text}"},
 snippet '
@@ -352,7 +350,7 @@ snippet input
 snippet mdsidenav
 	g.SIDENAV("${1:md-component-id}")${2}
 snippet nginc
-	g.INCLUDE().Src(${1})
+	g.NgINCLUDE("${1:src}")
 snippet mdtoolbar
 	g.TOOLBAR()${1}
 snippet mdcontent
@@ -496,8 +494,8 @@ snippet httperr
 snippet httpred
 	http.Redirect(res, r, "/"+rc.Language.Code+"/${1:url}", 308)
 snippet gamlfunc
-	func (rc *RequestContext) ${1:Elename}() *g.ELEMENT {
-		${2}
+	func (rc *RequestContext) ${1:Elename}(data interface{}) *g.ELEMENT {
+			return g.NgINCLUDE("/${2}")
 	}
 snippet logstr
 	app.client.Debug(fn, ${1})
@@ -599,3 +597,10 @@ snippet register
 		return app.RenderSSR(req, rc.web_$1, title, nil, true, false)
 
 	},
+snippet handler
+	func ${1:handlerName}Handler(w http.ResponseWriter, r *http.Request){
+	}
+snippet handleFunc
+	http.HandleFunc("/${1}", ${2:handler})
+snippet setjson
+	w.Header().Set("Content-Type", "application/json")

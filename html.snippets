@@ -223,7 +223,7 @@ snippet br
 snippet button
 	<button type="${1:submit}">${0}</button>
 snippet mdb
-	<md-button ng-click="${1:function}" class="md-raised md-primary" aria-label="$0 button">${0}</md-button>
+	<md-button ng-click="${1:function}" class="md-raised md-primary" aria-label="$0">${0}</md-button>
 snippet button.
 	<button class="${1:button}" type="${2:submit}">${0}</button>
 snippet button#
@@ -1030,7 +1030,7 @@ snippet wi
 snippet ngt
 	<ng-transclude></ng-transclude>
 snippet mdib
-	<md-button ng-click="${1:text}" class="md-icon-button" aria-label="${2:text} button">
+	<md-button ng-click="${1:text}" class="md-icon-button" aria-label="${2:text}">
 		<ng-md-icon class='default' icon="${3:text}" size="24"></ng-md-icon>
 		<md-tooltip>
 			${4:text}
@@ -1098,17 +1098,18 @@ snippet ngcl
 	ng-click="${1}"
 snippet '
 	&#39;
-snippet mdsw
-	<md-switch ng-model="${1:text}" aria-label="${2:action} switch">${3}</md-switch>
+snippet mdSwitch
+	<md-switch ng-model="${1}" aria-label="">
+		Switch 1: {{ ${2:$1} }}
+	</md-switch>
 snippet mdsel
-	</md-input-container>
-		<md-input-container>
-			<label>${1:Choose}</label>
-			<md-select ng-model="ctrl.userState">
-				<md-option ng-repeat="${2:repeat}" value="{{${3:thing}}}">
-					{{${4:thing}}}
-				</md-option>
-			</md-select>
+	<md-input-container>
+		<label>${1:Choose}</label>
+		<md-select ng-model="ctrl.userState">
+			<md-option ng-repeat="${2:repeat}" value="{{${3:thing}}}">
+				{{${4:thing}}}
+			</md-option>
+		</md-select>
 	</md-input-container>
 snippet ngsh
 	ng-show="${1}"${2} 
@@ -1153,3 +1154,36 @@ snippet ll
 	<li><a href="#/${1:url}">${2:display}</a></li>
 snippet copy
 	&copy;
+snippet mdfab
+	<md-button ng-click="${1}" class="md-fab md-secondary" aria-label="${2}">
+		<ng-md-icon icon="${3}"></ng-md-icon>
+	</md-button>
+snippet mdSidenav
+	<md-sidenav
+		class="md-sidenav-left"
+		md-component-id="left"
+		md-is-locked-open="$mdMedia('gt-md')"
+		md-whiteframe="4">
+
+		<md-toolbar class="md-theme-indigo">
+			<h1 class="md-toolbar-tools">Sidenav Left</h1>
+		</md-toolbar>
+		<md-content layout-padding ng-controller="LeftCtrl">
+			<md-button ng-click="close()" class="md-primary" hide-gt-md>
+				Close Sidenav Left
+			</md-button>
+			<p hide show-gt-md>
+				This sidenav is locked open on your device. To go back to the default behavior,
+				narrow your display.
+			</p>
+		</md-content>
+
+	</md-sidenav>
+snippet numberIcon
+	<number-icon icon-class='${1}' icon='${2}' number='${3}'></number-icon>
+snippet tag
+	<tag
+	 type='${1}'
+	 ng-repeat="t in ${2}"
+	 tag-object='t'>
+	</tag>

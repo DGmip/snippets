@@ -291,10 +291,10 @@ snippet gc
 	InterestFactory('${1:text}', 'accessibility', '$1');
 	${2:text}
 snippet fact
-	this.$2 = [];
+	$scope.$2 = [];
 	function ${1:text}Fact() {
 		var obj = {};
-		this.${2:list}.push(obj);
+		$scope.${2:list}.push(obj);
 	}
 	new $1Fact();
 snippet ob
@@ -453,7 +453,7 @@ snippet other
 snippet err
 	window.console.error('${1:message}', ${2:var})
 snippet con
-	window.console.log("${1:Here}: ", ${2} );
+	window.console.log('${1:Here}: ', ${2} );
 snippet jsonner
 	window.console.dir(JSON.stringify(${1:json}, null, 2));
 snippet cf
@@ -469,6 +469,6 @@ snippet demo
 		content: '${4:text}'
 	};
 snippet al
-	alert('${1:text}');
+	window.alert(${1:text});
 snippet skip
 	/*RemoveLogging:skip*/
