@@ -242,11 +242,6 @@ snippet cite
 	<cite>${0}</cite>
 snippet code
 	<code>${0}</code>
-# snippet col
-# 	<col />
-snippet col+
-	<col />
-	col+
 snippet colgroup
 	<colgroup>
 		${0}
@@ -907,8 +902,13 @@ snippet mdinput
 		<label>$2</label>
 		<input type="${1:text/submit/hidden/button/image}" name="${2:name}" id="${3:$2}" ng-model="${4:$2}"/>
 	</md-input-container>
+snippet col
+	<div layout='column'>
+		${1}
+	</div>
 snippet row
 	<div layout='row'>
+		${1}
 	</div>
 snippet rowe
 	</div/> <!-- row end -->
