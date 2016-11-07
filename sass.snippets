@@ -158,3 +158,13 @@ snippet fontface
 	+font-face("${1:namespace}", font-files("${2:theFiles}"))
 snippet tt
 	text-transform: none
+snippet lists
+	ul
+		list-style-type: none
+	a
+		color: $text-black
+		text-decoration: none
+		&:visited
+			color: $text-black
+		&:hover
+			text-decoration: underline
