@@ -1187,3 +1187,15 @@ snippet tag
 	 ng-repeat="t in ${2}"
 	 tag-object='t'>
 	</tag>
+snippet pagestates
+	<div ng-switch='pageState'>
+		<div ng-switch-when="loading" >
+			<md-progress-circular md-mode="indeterminate"></md-progress-circular>
+		</div>
+		<div ng-switch-when="ready" >
+
+		</div>
+		<div ng-switch-when="error">
+			<h4 class="error">Error loading Json :(</h4>
+		</div>
+	</div>
