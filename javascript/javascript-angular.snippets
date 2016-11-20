@@ -376,3 +376,7 @@ snippet preview
 	previewService.preview(${1:event calling this dialog}, '${2:id of container}', '${3:text to add to the dialog}');
 snippet arr
 	$scope.${1} = [];
+snippet preview
+	var parent = '#banner';
+	var text = 'This will favourite the business for you, animate and change the color of the heart';
+	previewService.preview(ev, parent, text);
