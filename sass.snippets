@@ -168,3 +168,19 @@ snippet lists
 			color: $text-black
 		&:hover
 			text-decoration: underline
+snippet borderButton
+
+	border: none
+	outline: none
+	margin: 0px
+	padding: 0px
+
+	-webkit-border-radius: none !important
+	-moz-border-radius: none !important
+	border-radius: none !important
+	+border-radius(0)
+	div.md-ripple-container
+		-webkit-border-radius: none !important
+		-moz-border-radius: none !important
+		border-radius: none !important
+		+border-radius(0)
