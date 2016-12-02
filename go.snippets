@@ -300,7 +300,7 @@ snippet '
 # gaml start
 # gaml start elements start
 snippet ngdir
-	NgDIRECTIVE("${1:name}")${2}
+	g.NgDIRECTIVE("${1:name}")${2}
 snippet nginit
 	.NgInit("${1}")
 snippet col
@@ -404,9 +404,9 @@ snippet mdtt
 snippet bre
 	g.BR(),${1}
 snippet mdtabs
-	g.MDTABS()${1}
+	g.MdTABS()${0}
 snippet tab
-	g.MDTAB("${1:label}")${2}
+	g.MdTAB("${1:label}")${2}
 snippet inlinestyles
 	g.INLINESTYLES("${1}")${2}
 # gaml elemnents end
@@ -507,7 +507,7 @@ snippet logerr
 	app.client.Error(fn, ${1})
 snippet logstrerr
 	app.client.NewError(fn, ${1})
-snippet page
+snippet gamlpage
 	package pages
 
 	import 	(
@@ -547,6 +547,10 @@ snippet del
 	g.Delims("${1:key}")
 snippet dell
 	<!! .${1:thing} !!>
+snippet ngcloak
+	.NgCloak()
+snippet enc
+	<!! encodeJSON .${1} !!>
 # gaml repo end
 snippet random
 	"math/rand"
@@ -608,3 +612,5 @@ snippet setjson
 	w.Header().Set("Content-Type", "application/json")
 snippet te
 	// tested: ${1:not} working
+snippet key
+	"${1}": ${2},${3}
