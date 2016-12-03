@@ -101,3 +101,6 @@ snippet bb
 	# ${1:comment}
 
 	${2}
+snippet rand
+	rand=$[$RANDOM % ${1:number}]
+	echo ${arr[$rand]}
