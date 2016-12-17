@@ -523,6 +523,8 @@ snippet gamlpage
 	}
 snippet lang
 	" + rc.Language.Code + "
+snippet country
+	" + rc.Country.Code + "
 snippet route
 	case "${1:route-name}":
 
@@ -618,4 +620,6 @@ snippet jo
 
 	josh.Add("about-${1}").Run("web_josh_About_${2}", "GET")
 
+snippet sr
+	SendRequests(fn, method, url string, retries int, data interface{}) (bool, []byte) {
 
