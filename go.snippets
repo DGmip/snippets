@@ -515,7 +515,7 @@ snippet gamlpage
 			// "github.com/leadinglocally/microservices/ng/components"
 			)
 
-	func (rc *RequestContext) ${1:page}(data interface{}) *ng.ELEMENT {
+	func (rc *RequestContext) ${1:page}(data interface{}) *g.ELEMENT {
 		ele := g.MdROW("${1:start} ${2:center}").Id("").Controller("AboutCtrl").SetData(data)
 		return ele.Add(
 			g.COL().Inner("${2:$1}"),
@@ -586,9 +586,9 @@ snippet reader
 snippet girlfriend
 	"github.com/golangdaddy/gf"
 snippet registert
-	"web_${1:name(key)}":					func (req *gf.Request) *gf.ResponseStatus {
+	"web_${1:name(key)}":					func (req gf.RequestInterface) *gf.ResponseStatus {
 
-		ok, app := Guest(req.Path(), req.Res, req.R); if !ok { return nil }
+		ok, app := Guest(req.Path(), req.Res(), req.R()); if !ok { return nil }
 		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
 
 		title := "${2:$1}"
