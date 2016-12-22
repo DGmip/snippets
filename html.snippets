@@ -142,7 +142,7 @@ snippet width
 	width="${1}"
 # Elements
 snippet a
-	<a href="${1:#}">${0:$1}</a>
+	<a href="/#/${1:#}">${0:$1}</a>
 snippet a.
 	<a class="${1}" href="${2:#}">${0:$1}</a>
 snippet a#
@@ -1223,3 +1223,12 @@ snippet agm
 	<!-- .angular-google-map-container { height: 400px; } -->
 snippet notes
 	<notes notes='notes'></notes>
+snippet mdtab
+	<md-tab id="${1}">
+		<md-tab-label>
+			<ng-md-icon class='grey' icon="${3}" size="32"></ng-md-icon>
+			<md-tooltip>${2}</md-tooltip>
+		</md-tab-label>
+		<md-tab-body>
+		</md-tab-body>
+	</md-tab>
