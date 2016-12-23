@@ -339,6 +339,20 @@ snippet llngfactory
 	//   self.data = data;
 	// })
 
+snippet llngroute
+	app.config(['$routeProvider', function($routeProvider) {
+			$routeProvider.
+
+				// proposal section
+				when('/welcome', {
+					templateUrl: 'proposal-welcome.html',
+					controller: 'proposalCtrl'
+				}).
+				otherwise({
+					redirectTo: '/'
+				});
+	}]);
+
 snippet dsm
 	ds.OpenDemoModal(null, ${1:text});
 
