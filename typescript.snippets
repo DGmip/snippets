@@ -1,0 +1,51 @@
+snippet v
+	var ${1} = ${2};
+snippet con
+	console.log('${1:Here}: ', ${2} );
+snippet c
+	console.log(${1});
+snippet for
+	for (let i = 0; i < ${1}; i +=1 ) {
+		${2}
+	}
+snippet exampleclass
+	class ${1} {
+		static totalPeople = 0;
+		_${2}; // es2016 property declaration syntax
+		constructor(${3:name}) {
+			// this._name = name;
+			${4}
+			Human.totalPeople += 1;
+		}
+		get ${5:$3} {
+			return this.$3;
+		}
+		set name(val) {
+			this._$3 = val;
+		}
+		talk() {
+			${6}
+			// return `Hi, I'm ${this.name}`;
+		}
+	}
+snippet get
+	get ${1:var} {
+		return this.$1;
+	}
+snippet set
+	set (${1:var}) {
+		this._$1 = val;
+	}
+snippet const
+	constructor(${1:vars}) {
+		// this._var1 = var1;
+		${2}
+		// Human.totalPeople += 1;
+	}
+snippet constS
+	constructor(${1:vars}) {
+		super(${2})
+		// this._var1 = var1;
+		${3}
+		// Human.totalPeople += 1; increment the amount of this class?
+	}

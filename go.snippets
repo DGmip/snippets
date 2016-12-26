@@ -320,7 +320,7 @@ snippet row.
 snippet ngb
 	g.B().Inner("${1}")
 snippet ngd
-	g.DIRECTIVE("${1}")${2}
+	g.NgDIRECTIVE("${1}")${2}
 snippet divi
 	g.MdDIVIDER(${1:16}),${2}
 snippet div
@@ -424,7 +424,7 @@ snippet nam
 snippet dev
 	rc.Dev_Info("${1}"),
 snippet ngc
-	.Controller("${1}")${2}
+	.NgController("${1}")${2}
 snippet flexer
 	g.DIV().Flex(-1),
 snippet fle
@@ -510,15 +510,15 @@ snippet logstrerr
 snippet gamlpage
 	package pages
 
-	import 	(
-			g "github.com/golangdaddy/gaml"
-			// "github.com/leadinglocally/microservices/ng/components"
-			)
+	import (
+		g "github.com/golangdaddy/gaml"
+		// "github.com/leadinglocally/microservices/ng/components"
+	)
 
-	func (rc *RequestContext) ${1:page}(data interface{}) *g.ELEMENT {
-		ele := g.MdROW("${1:start} ${2:center}").Id("").Controller("AboutCtrl").SetData(data)
+	func (rc *RequestContext) page(data interface{}) *g.ELEMENT {
+		ele := g.MdROW("start center").Id("").NgController("AboutCtrl").SetData(data)
 		return ele.Add(
-			g.COL().Inner("${2:$1}"),
+			g.COL().Inner("ter"),
 		)
 	}
 snippet lang
@@ -596,9 +596,9 @@ snippet registert
 
 	},
 snippet register
-	"web_${1:name(key)}":					func (req *gf.Request) *gf.ResponseStatus {
+	"web_${1:name(key)}":					func (req gf.RequestInterface) *gf.ResponseStatus {
 
-		ok, app := Guest(req.Path(), req.Res, req.R); if !ok { return nil }
+		ok, app := Guest(req.Path(), req.Res(), req.R()); if !ok { return nil }
 		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
 
 		title := "${2:$1}"
