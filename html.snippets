@@ -954,6 +954,7 @@ snippet llei
 snippet llmt
 	<ll-multi-tag class='${1:class}' data="${2:data}" ng-repeat="${3:tag} in ${4:tags}"></ll-multi-tag>
 snippet gopher
+	/*
 						 ,_---~~~~~----._
 		_,,_,*^____      _____``*g*\"*,
 	 / __/ /'     ^.  /      \ ^@q   f
@@ -965,6 +966,7 @@ snippet gopher
 		]             ~ ~             |
 		|                            |
 		 |                           |
+	*/
 snippet ngr
 	ng-repeat="${1:text}"
 snippet pin
@@ -1031,7 +1033,7 @@ snippet ngt
 	<ng-transclude></ng-transclude>
 snippet mdib
 	<md-button ng-click="${1:text}" class="md-icon-button" aria-label="${2:text}">
-		<ng-md-icon class='default' icon="${3:text}" size="24"></ng-md-icon>
+		<ng-md-icon class='default' icon="${3:send}" size="24"></ng-md-icon>
 		<md-tooltip>
 			${4:text}
 		</md-tooltip>
@@ -1114,11 +1116,11 @@ snippet mdsel
 		</md-select>
 	</md-input-container>
 snippet ngsh
-	ng-show="${1}"${2} 
+	ng-show="${1}"${2}
 snippet ngs
-	ng-switch="${1:expression}" 
+	ng-switch="${1:expression}"
 snippet ngsw
-	ng-switch-when="${1:string}" 
+	ng-switch-when="${1:string}"
 snippet sm
 	<md-button ng-if="" ng-click="" class="md-icon-button" aria-label="show more button">
 		<ng-md-icon class='nudge-3 default' icon="expand_more " size="24"></ng-md-icon>
@@ -1210,11 +1212,11 @@ snippet mdtt
 snippet tabs
 
 snippet tab
-	<md-tab label="${1}">
-		<md-content class="md-padding">
-			<h1 class="md-display-2">Tab One</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.</p>
-		</md-content>
+	<md-tab>
+		<md-tab-label>${1}</md-tab-label>
+		<md-tab-body>
+			${2}
+		</md-tab-body>
 	</md-tab>
 snippet agm
 	<!-- angular google map -->
@@ -1232,3 +1234,6 @@ snippet mdtab
 		<md-tab-body>
 		</md-tab-body>
 	</md-tab>
+snippet rib
+	<rounded-icon-button display='${1}' icon='${2}' color-class='${3}'></rounded-icon-button>
+

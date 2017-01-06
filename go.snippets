@@ -1,3 +1,18 @@
+snippet gopher
+	/*
+						 ,_---~~~~~----._
+		_,,_,*^____      _____``*g*\"*,
+	 / __/ /'     ^.  /      \ ^@q   f
+	[  @f | @))    |  | @))   l  0 _/
+	 \`/   \~____ / __ \_____/    \
+		|           _l__l_           I
+		}          [______]           I
+		]            | | |            |
+		]             ~ ~             |
+		|                            |
+		 |                           |
+		  ${1}
+	*/
 # shorthand variable declaration
 snippet v
 	${1} := ${2}
@@ -585,23 +600,25 @@ snippet reader
 	fmt.Println(text)
 snippet girlfriend
 	"github.com/golangdaddy/gf"
-snippet registert
+snippet registerpage
 	"web_${1:name(key)}":					func (req gf.RequestInterface) *gf.ResponseStatus {
 
 		ok, app := Guest(req.Path(), req.Res(), req.R()); if !ok { return nil }
-		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
+		status, rc := app.NewRequestContext(req, app.client); if status != nil { return status }
 
 		title := "${2:$1}"
-		return app.RenderSSR(req, rc.web_$1, title, nil, false, false)
+
+		return rc.RenderPage(req, "dist/templates/pages/proposal.page.html", title, nil, true, false)
 
 	},
-snippet register
+snippet registerssr
 	"web_${1:name(key)}":					func (req gf.RequestInterface) *gf.ResponseStatus {
 
 		ok, app := Guest(req.Path(), req.Res(), req.R()); if !ok { return nil }
-		status, rc := app.RequestContext(req, app.client); if status != nil { return status }
+		status, rc := app.NewRequestContext(req, app.client); if status != nil { return status }
 
 		title := "${2:$1}"
+
 		return app.RenderSSR(req, rc.web_$1, title, nil, true, false)
 
 	},

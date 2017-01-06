@@ -174,20 +174,15 @@ snippet template
 	<script id="${1:id}" type="text/ng-template">
 	</script>
 snippet llngd
-	directives.directive('${1:name}', [ ${2}, function( ${3} ) {
+	directives.directive('${1}', function() {
 		return {
-			scope: true,
-			templateUrl: '${4:$1}.html',
-			restrict: '${5:E}',
-			controller: '',
-			bindToControl: true,
+			scope: {},
+			templateUrl: '/en/template/directive/${2}.html',
+			restrict: 'E',
 			link: function(scope, element, attrs) {
-				'use-strict';
-				${6}
 			} // end linking
 		}; // end return
-	}]);
-
+	});
 snippet deb
 	$log.debug( "${1:id}", ${2} );
 snippet v
