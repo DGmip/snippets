@@ -1043,7 +1043,7 @@ snippet mdDialog
 		<md-toolbar>
 			<div class="md-toolbar-tools {{${1:business|brand}}}" layout='row'>
 				<span flex></span>
-				<md-button ng-click="Close()" class="md-icon-button" aria-label="close button">
+				<md-button ng-click="close()" class="md-icon-button" aria-label="close button">
 					<ng-md-icon class='light' icon="close" size="24"></ng-md-icon>
 					<md-tooltip>
 						Close
@@ -1236,4 +1236,9 @@ snippet mdtab
 	</md-tab>
 snippet rib
 	<rounded-icon-button display='${1}' icon='${2}' color-class='${3}'></rounded-icon-button>
-
+snippet divc
+	<div layout='column' layout-align='${1:start} ${2:center}'>
+	</div>
+snippet divr
+	<div layout='row' layout-align='${1:start} ${2:center}'>
+	</div>
