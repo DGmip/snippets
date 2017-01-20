@@ -8,9 +8,15 @@ snippet proto
 # Function
 snippet fun
 	function ${1:function_name}(${2}) {
-		${0}
+		var fn = '$1';
 	}
-# Anonymous Function
+snippet sf
+	$scope.${1} = function(${2}){
+	};
+snippet ilf
+	function(${1}){
+	}
+# angular function
 snippet f
 	= function(${1}) {
 		${0}
@@ -451,7 +457,7 @@ snippet gbp
 snippet other
 	new BrandInfoSectionsFact('', '${1}', [true, true, true], ${2:array});
 snippet err
-	window.console.error('${1:message}', ${2:var})
+	window.console.error('${1:message}', ${2:fn});
 snippet con
 	window.console.log('${1:Here}: ', ${2} );
 snippet warn
