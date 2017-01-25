@@ -390,3 +390,10 @@ snippet previewLong
 	var parent = '#main-view';
 	var text = 'This will favourite the business for you, animate and change the color of the heart';
 	previewService.preview(ev, parent, text);
+snippet $watch
+	$scope.$watch(function(){
+		return ${1}
+	}, function(data){
+		${2}
+		// do a thing with the data
+	})
