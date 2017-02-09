@@ -187,18 +187,13 @@ snippet deb
 	$log.debug( "${1:id}", ${2} );
 snippet v
 	var ${1:text} = ${2:text};
-snippet http
-	// Simple GET request example:
+snippet httpget
 	$http({
-		method: '${1:GET}',
-		url: '/${1:url}'
+		method: 'GET',
+		url: url
 	}).then(function successCallback(response) {
-			// this callback will be called asynchronously
-			// when the response is available
-		}, function errorCallback(response) {
-			// called asynchronously if an error occurs
-			// or server returns response with an error status.
-		});
+	}, function errorCallback(response) {
+	});
 snippet da
 	${1:key}: '=${2:$1}',
 snippet ar
@@ -397,3 +392,14 @@ snippet $watch
 		${2}
 		// do a thing with the data
 	})
+snippet into
+	InteractionOverlay.open({
+		event: ev,
+		template: '/en/template/overlay/accounts-company/add-trademarks/spreadsheet.tpl.html',
+		controller: 'AccountsAdminOverlayCtrl',
+		object: { company: $scope.company},
+		finish: function(){
+		},
+		cancel: function(){
+		}
+	});
