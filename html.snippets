@@ -971,8 +971,6 @@ snippet pin
 snippet elem
 	<${1:elem}>
 	</$1>
-snippet avatar
-	<ll-avatar id='${1:id}'></ll-avatar>
 snippet mdd
 	<md-divider></md-divider>
 snippet pre
@@ -1270,3 +1268,20 @@ snippet swiw
 	</div>
 snippet tag
 	<tag tag-object='t' color-class='${1}' icon='${2}' ng-repeat="t in ${3}"></tag>
+snippet enta
+	<entity-avatar entity-type='${1}' mode='${2}' entity-id='${3}'></entity-avatar>
+snippet flag
+	<location-flag small='true' country-code='${1}'></location-flag>
+snippet rib
+	<rounded-icon-button display='${1}' icon='file_upload' color-class='${2}' ng-click="Sections.${3:section}.overlay.${4:function}($event)"></rounded-icon-button>
+snippet progress
+	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+snippet loading
+	<div ng-switch-when='loading' layout='column' layout-align='center center' layout-fill>
+		<md-progress-circular md-mode="indeterminate" md-diameter="40px"></md-progress-circular>
+	</div>
+snippet error
+	<div ng-switch-when='error' layout='column' layout-align='center center' layout-fill>
+		<ng-md-icon class='error' icon="error" size="40"></ng-md-icon>
+	</div>
+

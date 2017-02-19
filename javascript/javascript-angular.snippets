@@ -416,3 +416,20 @@ snippet overlay
 			<rounded-icon-button display='Add team member' icon='add' color-class='brand-green' ng-click="addTeamMember()"></rounded-icon-button>
 		</div>
 	</div>
+snippet uploaderConfig
+	var uploaderConfig = {
+		success: function(response){
+			window.console.log('Successfully uploaded image: ', response );
+		},
+		fail: function(response){
+		},
+		queueLimit: 1,
+		entityType: 'company',
+		entityId: 'DPp3qS4_T7KVGft37xefhbYwCUbwZ8',
+		mode: 'logo',
+		autoUpload: true
+	};
+snippet entav
+	<entity-avatar entitytype='${1}' mode='${2}' entity-id='${3}' editable='false'></entity-avatar>
+snippet uid
+	APIService.UserID()
