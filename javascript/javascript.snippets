@@ -9,7 +9,7 @@ snippet proto
 snippet fun
 	function ${1:function_name}(${2}) {
 		var fn = '$1()';
-	}
+	} // $1();
 snippet sf
 	$scope.${1} = function(${2}){
 	};
@@ -460,6 +460,8 @@ snippet err
 	window.console.error('${1:message}', ${2:fn});
 snippet con
 	window.console.log('${1:Here}: ', ${2} );
+snippet war
+	window.console.warn('${1:warning oh noes!}');
 snippet warn
 	window.console.warn('${1:Here}: ', ${2} );
 snippet jsonner
@@ -482,3 +484,6 @@ snippet skip
 	/*RemoveLogging:skip*/
 snippet gc
 	${1}: ${2:$1},
+snippet fi
+	function(${1}){
+	}

@@ -74,12 +74,12 @@ snippet trans
 	+transition-timing-function(${3:linear})
 snippet constrain
 	width: ${1:int}px
-	height: $1px
-	min-height: $1px
+	height: ${2:int}px
+	min-height: $2px
 	max-height: $1px
 	min-width: $1px
-	max-width: $1px
-	line-height: $1px
+	max-width: $2px
+	line-height: $2px
 snippet brr
 	+border-radius(${1:4}px)
 snippet br
@@ -199,3 +199,5 @@ snippet fc
 	&:first-child
 snippet lc
 	&:last-child
+snippet page
+	@import 'pages/${1}'

@@ -71,8 +71,10 @@ snippet widget
 				${2:Content}
 snippet b
 	%body
-snippet h
+snippet head
 	%head
+snippet h
+	%h${1}
 snippet p
 	%p
 snippet c
@@ -181,12 +183,6 @@ snippet angular-material
 	%script{:src => "bower_components/angular-route/angular-route.min.js"}
 snippet lib
 	%script{:src => "../js/${1:appName}.js"}
-snippet attr
-	:${1:attrName} => "${2}"
-snippet attrq
-	"${1:attrName}" => "${2}"
-snippet attrq&
-	"${1:attrName}" => "${2}", 
 snippet md
 	"md-${1:attrName}" => "${2}"
 snippet mda
@@ -203,7 +199,6 @@ snippet imagel
 
 snippet imageu
 	%img{:src => "https://unsplash.it/${1:width}/${2:height}/?${3:random}&${4:gravity=east}"}
-
 snippet image
 	%img{:src => "${1:source}"}
 snippet script
@@ -214,6 +209,13 @@ snippet l
 	:layout => "${1:column|row}"
 snippet la
 	"layout-align" => "${1:start|end|space-around|space-between|center|}"
+snippet icon
+	%ng-md-icon{"icon" => "${1:android}", :class => "default", "size" => "${3:24}"}
+snippet mdib
+	%md-button.md-icon-button{"aria-label" => "yet anoter label", "ng-click" => "${1}"}
+		%ng-md-icon.default{:icon => "${2}", :size => "${3:24}"}
+		%md-tooltip
+			${4:text}
 snippet md-menu
 	%md-menu{"md-position-mode" => "target-right target"}
 		%md-button.md-icon-button{"aria-label" => "", "ng-click" => ""}
@@ -232,17 +234,8 @@ snippet md-menu
 				%md-button{"ng-click" => ""}
 					%md-icon{"md-svg-icon" => ""}
 					Eat a cheeseburger
-snippet icon
-	%ng-md-icon{"icon" => "${1:android}", :class => "default", "size" => "${3:24}"}
 snippet layout
 	:layout => "${1:row}", "layout-align" => "${2:start} ${3:center}"
-snippet g
-	%md-divider
-	%h2{:id => "${1:linkName}"}
-		${2:formal}
-snippet f
-	%h4{:id => "${1:linkName}"}
-		${2:formal}
 snippet state
 	%a{"ui-sref" => "${1}"}
 snippet id
@@ -277,3 +270,9 @@ snippet pre
 	%pre {{${1:text} | prettyPrint }}
 snippet mdd
 	%md-divider
+snippet attr
+	:${1:attrName} => "${2}"
+snippet attrq
+	"${1:attrName}" => "${2}"
+snippet attrq&
+	"${1:attrName}" => "${2}", 

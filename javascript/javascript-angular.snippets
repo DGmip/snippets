@@ -225,14 +225,6 @@ snippet tiny
 		$location.url('page');
 		$location.hash(list[id]);
 		break;${2}
-snippet tb
-	<md-toolbar md-scroll-shrink>
-		<div class="md-toolbar-tools" layout='row' layout-align='center center'> <h1>${1:text}</h1> </div>
-	</md-toolbar>${2}
-
-snippet llaccordion
-	<ll-accordion id="${1:id}" data="${2:text}" active="${3:text}" active-sub="${4:text}" callback="${5:text}"></ll-accordion>
-
 snippet cg
 	Fact( '${1:text}', '${2:text}', ${3:text}, '${4:info}');
 snippet mddialogalert
@@ -395,7 +387,7 @@ snippet $watch
 snippet into
 	InteractionOverlay.open({
 		event: ev,
-		template: '/en/template/overlay/accounts-company/${1:section}/${2:template}.tpl.html',
+		template: '/en/template/overlay/${1:template}.tpl.html',
 		controller: 'AccountsAdminOverlayCtrl',
 		object: { company: $scope.company},
 		finish: function(){
@@ -433,3 +425,9 @@ snippet entav
 	<entity-avatar entitytype='${1}' mode='${2}' entity-id='${3}' editable='false'></entity-avatar>
 snippet uid
 	APIService.UserID()
+# in function
+snippet inf
+	function(${1}){
+	}
+snippet image
+	'https://media.leadinglocally.com/api/image/'+${1:id}+'/large';
