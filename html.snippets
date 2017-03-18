@@ -500,6 +500,8 @@ snippet img.
 	<img class="${1}" src="${2}" alt="${3}" />
 snippet img#
 	<img id="${1}" src="${2}" alt="${3}" />
+snippet inputt
+	<input class="input" type="text" name="input" id="input" placeholder="${1}" ng-model="${2}" />
 snippet input.
 	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />
 snippet input:text
@@ -1256,7 +1258,7 @@ snippet lw
 
 # leading locally snippets
 snippet adb
-	<add-box text='${1}' type='${2}'></add-box>
+	<add-box text='${1:Add a thing}' type='${2}'></add-box>
 snippet flexing
 	<div flex='${1}'>
 	</div>
@@ -1271,17 +1273,17 @@ snippet tag
 snippet enta
 	<entity-avatar entity-type='${1}' mode='${2}' entity-id='${3}'></entity-avatar>
 snippet flag
-	<location-flag small='true' country-code='${1}'></location-flag>
+	<flag size='${1}' country-code='${1}'></flag>
 snippet rib
 	<rounded-icon-button display='${1}' icon='file_upload' color-class='${2}' ng-click="Sections.${3:section}.overlay.${4:function}($event)"></rounded-icon-button>
 snippet progress
 	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
 snippet loading
-	<div ng-switch-when='loading' layout='column' layout-align='center center' layout-fill>
+	<div ng-switch-when='loading' class='loading' layout='column' layout-align='center center' layout-fill>
 		<md-progress-circular md-mode="indeterminate" md-diameter="40px"></md-progress-circular>
 	</div>
 snippet error
-	<div ng-switch-when='error' layout='column' layout-align='center center' layout-fill>
+	<div ng-switch-when='error' class='error' layout='column' layout-align='center center' layout-fill>
 		<ng-md-icon class='error' icon="error" size="40"></ng-md-icon>
 	</div>
 snippet eh

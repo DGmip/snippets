@@ -363,12 +363,17 @@ snippet prom
 	return deferred.promise;
 snippet navigate
 	NavigateService.navigate(${1:url}, ${2:route}, ${3:hash}, ${4:query}, ${5:newWindowBool});
-snippet post
-	CrudService.modulePost('${1:module}', '${2:route}', function(data){
-		console.log("${3:thing} Success:", data );
-	}, data);
 snippet pro
 	"${1}" : "${2}",
+snippet $http
+	var url = '';
+	//
+	$http({
+		method: 'GET',
+		url: url
+	}).then(function successCallback(res) {
+	}, function errorCallback(res) {
+	});
 snippet previewShort
 	previewService.preview(${1:event calling this dialog}, '${2:id of container}', '${3:text to add to the dialog}');
 snippet arr
@@ -387,9 +392,9 @@ snippet $watch
 snippet into
 	InteractionOverlay.open({
 		event: ev,
-		template: '/en/template/overlay/${1:template}.tpl.html',
-		controller: 'AccountsAdminOverlayCtrl',
-		object: { company: $scope.company},
+		template: '/en/template/overlay/admin-business/${1:template}.tpl.html',
+		controller: 'AdminBusinessOverlayCtrl',
+		object: { brandId: brandId },
 		finish: function(){
 		},
 		cancel: function(){
@@ -431,3 +436,12 @@ snippet inf
 	}
 snippet image
 	'https://media.leadinglocally.com/api/image/'+${1:id}+'/large';
+snippet cc
+	NavigationService.Location.Country().Code
+
+snippet mfuncs
+	function(data){
+		window.console.log('Got ${1:thing}: ', data );
+	}, function(){
+		window.console.error('Could not get ${2:$1}', fn);
+	});

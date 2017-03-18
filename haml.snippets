@@ -1,6 +1,8 @@
+snippet t
+	%${1}
 snippet thing
 	%${1}
-snippet t
+snippet table
 	%table
 		%tr
 			%th
@@ -17,7 +19,7 @@ snippet rp
 snippet rpc
 	= render partial: '${1:item}', collection: ${0:@$1s}
 snippet rpl
-	= render partial: '${1:item}', locals: { :${2:$1} => ${0:@$1}
+	= render partial: '${1:item}', locals: { :${2:$1}: ${0:@$1}
 snippet rpo
 	= render partial: '${1:item}', object: ${0:@$1}
 snippet lt
@@ -52,20 +54,20 @@ snippet widget
 			/ #section:custom/widget-box.toolbar
 			.widget-toolbar
 				.widget-menu
-					%a{ 'data-action' => 'settings', 'data-toggle' => 'dropdown', href: '#' }
+					%a{ 'data-action': 'settings', 'data-toggle': 'dropdown', href: '#' }
 						%i.ace-icon.fa.fa-bars
 					%ul.dropdown-menu.dropdown-menu-right.dropdown-light-blue.dropdown-caret.dropdown-closer
 						%li
-							%a{ 'data-toggle' => 'tab', href: '#dropdown1' } Option#1
+							%a{ 'data-toggle': 'tab', href: '#dropdown1' } Option#1
 						%li
-							%a{ 'data-toggle' => 'tab', href: '#dropdown2' } Option#2
-				%a.orange2{ 'data-action' => 'fullscreen', href: '#' }
+							%a{ 'data-toggle': 'tab', href: '#dropdown2' } Option#2
+				%a.orange2{ 'data-action': 'fullscreen', href: '#' }
 					%i.ace-icon.fa.fa-expand
-				%a{ 'data-action' => 'reload', href: '#' }
+				%a{ 'data-action': 'reload', href: '#' }
 					%i.ace-icon.fa.fa-refresh
-				%a{ 'data-action' => 'collapse', href: '#' }
+				%a{ 'data-action': 'collapse', href: '#' }
 					%i.ace-icon.fa.fa-chevron-up
-				%a{ 'data-action' => 'close', href: '#' }
+				%a{ 'data-action': 'close', href: '#' }
 					%i.ace-icon.fa.fa-times
 			/ /section:custom/widget-box.toolbar
 		.widget-body
@@ -91,15 +93,15 @@ snippet eachl
 	- @$1.each do |i|
 			#{i}
 snippet a
-	%a{ href: '#${1:#}' }
+	%a{ href: '/#/${1:#}' } $1
 snippet render
 	= Haml::Engine.new(File.read('${1:path-to-file}')).render
 snippet input
-	%input{ type: '${1:text}', placeholder: '${2:Type something...}', data: { 'ng-model' => '${3:modelname}' }}
+	%input{ type: '${1:text}', placeholder: '${2:Type something...}', data: { 'ng-model': '${3:modelname}' }}
 snippet ngc
-	'ng-click' => '${1:Action}',
+	'ng-click': '${1:Action}',
 snippet ng
-	{ data: { 'ng-${1:ng-what?}' => '${2:your thing}' }}
+	{ data: { 'ng-${1:ng-what?}': '${2:your thing}' }}
 snippet navbar
 	%nav.navbar.navbar-default
 		.container-fluid
@@ -121,22 +123,22 @@ snippet jumb
 		%p ${2:Paragraph}
 snippet dropdown
 	.dropdown
-		%button.btn.btn-primary.dropdown-toggle{ 'data-toggle' => 'dropdown', type: 'button' }
+		%button.btn.btn-primary.dropdown-toggle{ 'data-toggle': 'dropdown', type: 'button' }
 			${1:Title}
 			%span.caret
 		%ul.dropdown-menu
 			%li
-				%a{ href: '#', => :data{ 'ng-click' => '${5:click}' }} ${2:One}
+				%a{ href: '#',: :data{ 'ng-click': '${5:click}' }} ${2:One}
 			%li
-				%a{ href: '#', => :data{ 'ng-click' => '${6:click}' }} ${3:Two}
+				%a{ href: '#',: :data{ 'ng-click': '${6:click}' }} ${3:Two}
 			%li
-				%a{ href: '#', => :data{ 'ng-click' => '${7:click}' }} ${4:Three}
+				%a{ href: '#',: :data{ 'ng-click': '${7:click}' }} ${4:Three}
 
 snippet navbarc
 	%nav.navbar.navbar-inverse
 		.container-fluid
 			.navbar-header
-				%button.navbar-toggle{ 'data-target' => '#myNavbar', 'data-toggle' => 'collapse', type: 'button' }
+				%button.navbar-toggle{ 'data-target': '#myNavbar', 'data-toggle': 'collapse', type: 'button' }
 					%span.icon-bar
 					%span.icon-bar
 					%span.icon-bar
@@ -146,7 +148,7 @@ snippet navbarc
 					%li.active
 						%a{ href: '#' } Home
 					%li.dropdown
-						%a.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#' }
+						%a.dropdown-toggle{ 'data-toggle': 'dropdown', href: '#' }
 							Page 1
 							%span.caret
 						%ul.dropdown-menu
@@ -186,9 +188,9 @@ snippet angular-material
 snippet lib
 	%script{ src: '../js/${1:appName}.js' }
 snippet md
-	'md-${1:attrName}' => '${2}'
+	'md-${1:attrName}': '${2}'
 snippet mda
-	%md-${1}{ '${2:attrName}' => '${3:attrValue}' }
+	%md-${1}{ '${2:attrName}': '${3:attrValue}' }
 snippet md
 	%md-${1}
 snippet imagep
@@ -208,64 +210,64 @@ snippet script
 snippet d
 	%div
 snippet l
-	layout: '${1:column|row}'
+	 layout: '${1:column|row}' 
 snippet la
-	'layout-align' => '${1:start|end|space-around|space-between|center|}'
+	 layout-align: '${1:start|end|space-around|space-between|center|}' 
 snippet icon
-	%ng-md-icon{ 'icon' => '${1:android}', class: 'default', 'size' => '${3:24}' }
+	%ng-md-icon{ 'icon': '${1:android}', class: 'default', 'size': '${3:24}' }
 snippet mdib
-	%md-button.md-icon-button{ 'aria-label' => 'yet anoter label', 'ng-click' => '${1}' }
+	%md-button.md-icon-button{ 'aria-label': 'yet anoter label', 'ng-click': '${1}' }
 		%ng-md-icon.default{ icon: '${2}', size: '${3:24}' }
 		%md-tooltip
 			${4:text}
 snippet md-menu
-	%md-menu{ 'md-position-mode' => 'target-right target' }
-		%md-button.md-icon-button{ 'aria-label' => '', 'ng-click' => '' }
-			%md-icon{ 'md-menu-origin' => '', 'md-svg-icon' => '' }
+	%md-menu{ 'md-position-mode': 'target-right target' }
+		%md-button.md-icon-button{ 'aria-label': '', 'ng-click': '' }
+			%md-icon{ 'md-menu-origin': '', 'md-svg-icon': '' }
 		%md-menu-content{ width: '4' }
 			%md-menu-item
-				%md-button{ 'ng-click' => '' }
-					%md-icon{ 'md-menu-align-target' => '', 'md-svg-icon' => '' }
+				%md-button{ 'ng-click': '' }
+					%md-icon{ 'md-menu-align-target': '', 'md-svg-icon': '' }
 					Login
 			%md-menu-item
-				%md-button{ disabled: 'disabled', 'ng-click' => '' }
-					%md-icon{ 'md-svg-icon' => '' }
+				%md-button{ disabled: 'disabled', 'ng-click': '' }
+					%md-icon{ 'md-svg-icon': '' }
 					Signup
 			%md-menu-divider
 			%md-menu-item
-				%md-button{ 'ng-click' => '' }
-					%md-icon{ 'md-svg-icon' => '' }
+				%md-button{ 'ng-click': '' }
+					%md-icon{ 'md-svg-icon': '' }
 					Eat a cheeseburger
 snippet layout
-	layout: '${1:row}', 'layout-align' => '${2:start} ${3:center}'
+	 layout: '${1:row}', 'layout-align' => '${2:start} ${3:center}' 
 snippet state
-	%a{ 'ui-sref' => '${1}' }
+	%a{ 'ui-sref': '${1}' }
 snippet id
 	id: '${1:id}'
 snippet sp
 	%span
 snippet button
-	%md-button.md-raised{ 'ng-click' => '${1:ClickEv}', }
-		%ng-md-icon{ 'icon' => '${2:icon}', 'style' => 'fill:${3:color}', 'size' => '${4:30}' }
+	%md-button.md-raised{ 'ng-click': '${1:ClickEv}', }
+		%ng-md-icon{ 'icon': '${2:icon}', 'style': 'fill:${3:color}', 'size': '${4:30}' }
 		%md-tooltip ${5:tooltip}
 snippet flex
-	.flex{ flex: '${1}' }, ${2}
+	 flex: '' 
 snippet flex&
 	flex: '${1:number}', 
 snippet lab
 	%label ${1:text}
 snippet button
-	%md-button.md-raised{ 'ng-click' => '${1:text}' }
+	%md-button.md-raised{ 'ng-click': '${1:text}' }
 snippet ll
 	%ll-${1:text}
 snippet ngr
-	'ng-repeat' => '${1:ref} in ${2:array}'
+	'ng-repeat': '${1:ref} in ${2:array}'
 snippet span
 	%span
 snippet mdi
 	%md-input-container
 		%label ${1:label}
-		%input{ type: '${2:input}', name: '${3:name}', 'ng-model' => '${4:model}' }
+		%input{ type: '${2:input}', name: '${3:name}', 'ng-model': '${4:model}' }
 snippet st
 	style: '${1:text}'${2}
 snippet pre
@@ -273,8 +275,12 @@ snippet pre
 snippet mdd
 	%md-divider
 snippet attr
-	:${1:attrName} => '${2}'
+	 ${1:attrName}: '${2}'
 snippet attrq
-	'${1:attrName}' => '${2}'
+	 '${1:attrName}' => '${2}' 
 snippet attrq&
-	'${1:attrName}' => '${2}', 
+	 '${1:attrName}': '${2}', 
+snippet shad
+	md-whiteframe-z${1}
+snippet lf
+	'layout-fill' => ''
