@@ -1278,6 +1278,10 @@ snippet rib
 	<rounded-icon-button display='${1}' icon='file_upload' color-class='${2}' ng-click="Sections.${3:section}.overlay.${4:function}($event)"></rounded-icon-button>
 snippet progress
 	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+snippet ready
+	<div ng-switch-when='ready' class='loading' layout='column' layout-align='center center' layout-fill>
+		ready
+	</div>
 snippet loading
 	<div ng-switch-when='loading' class='loading' layout='column' layout-align='center center' layout-fill>
 		<md-progress-circular md-mode="indeterminate" md-diameter="40px"></md-progress-circular>
