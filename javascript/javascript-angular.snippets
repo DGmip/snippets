@@ -281,14 +281,24 @@ snippet llngc
 		var fn = "$1";
 	});
 snippet llngf
-	app.factory('${1:text}', function($http, $q){
+	services.factory('BrandFact', function($http, $q){
 		'use strict';
-		var service = {};
-		return service;
+		// factories return the value like a pointer
+		// private and not viewable from frontend
+		var foo = 'bar';
+		// what is actually returned
+		return {
+			doSomething: function(baz){
+				return (baz + '...');
+			}
+		}; // end return
 	});
+
 snippet llngs
 	services.service('${1:text}', function() {
 		'use-strict';
+		// services return an instance of themselves
+		// you can't really have private shit in here
 		var fn = "$1";
 		var service = {};
 
@@ -392,9 +402,9 @@ snippet $watch
 snippet into
 	InteractionOverlay.open({
 		event: ev,
-		template: '/en/template/overlay/admin-business/${1:template}.tpl.html',
-		controller: 'AdminBusinessOverlayCtrl',
-		object: { brandId: brandId },
+		template: '/en/template/overlay/${1:template}.tpl.html',
+		controller: '${2}OverlayCtrl',
+		object: {},
 		finish: function(){
 		},
 		cancel: function(){
@@ -438,7 +448,10 @@ snippet image
 	'https://media.leadinglocally.com/api/image/'+${1:id}+'/large';
 snippet cc
 	NavigationService.Location.Country().Code
-
+snippet countryCode
+	var countryCode = $scope.countryCode = NavigationService.Location.Country().Code;
+snippet lc
+	LanguageService.language;
 snippet mfuncs
 	function(data){
 		window.console.log('Got ${1:thing}: ', data );

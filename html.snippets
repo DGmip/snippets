@@ -142,7 +142,7 @@ snippet width
 	width="${1}"
 # Elements
 snippet a
-	<a href="/#/${1:#}">${0:$1}</a>
+	<a href="${1:}">${0:$1}</a>
 snippet a.
 	<a class="${1}" href="${2:#}">${0:$1}</a>
 snippet a#
@@ -569,7 +569,7 @@ snippet legend
 snippet legend+
 	<legend><span>${0}</span></legend>
 snippet li
-	<li>${1:text}</li>
+	<li>${1}</li>
 snippet li.
 	<li class="${1}">${0}</li>
 snippet li+
@@ -1279,7 +1279,7 @@ snippet rib
 snippet progress
 	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
 snippet ready
-	<div ng-switch-when='ready' class='loading' layout='column' layout-align='center center' layout-fill>
+	<div ng-switch-when='ready' class='ready' layout='column' layout-align='center center' layout-fill>
 		ready
 	</div>
 snippet loading
@@ -1293,3 +1293,31 @@ snippet error
 snippet eh
 	<edit-hover click="${1}">
 	</edit-hover>
+snippet page
+	<div id='${1:id}' class="about-page" ng-controller='AboutCtrl'>
+		<div class="background-image" layout='column' layout-align='start center' style="background-image:url('https://libs.leadinglocally.com/images/about-pages/${2}')">
+			<div class="text-wrapper">
+				<span> <span class="orange bold">Leading Locally</span> enables </span>
+				<ul>
+					<li><span>Brands to build awareness, guide customers to their businesses, and engage at the point-of-purchase</span></li>
+				</ul>
+				<span> <span class="orange bold">Leading Locally</span> is the final customer marketing opportunity for brands and businesses </span>
+			</div>
+		</div> <!-- background-image -->
+
+		<main-stats></main-stats>
+
+		<md-button ng-click="openMenu($event)" class="main-menu-button md-fab" aria-label="Open menu button">
+			<ng-md-icon class='white' icon="add" size="24"></ng-md-icon>
+		</md-button>
+
+		<overlay-menu-button></overlay-menu-button>
+
+		<div flex>
+		</div>
+
+	</div> <!-- .about-page $1-->
+snippet youtube
+	<iframe width="420" height="315"
+		src="https://www.youtube.com/embed/">
+	</iframe>

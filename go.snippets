@@ -600,15 +600,15 @@ snippet reader
 	fmt.Println(text)
 snippet girlfriend
 	"github.com/golangdaddy/gf"
-snippet registerpage
-	"web_${1:name(key)}":					func (req gf.RequestInterface) *gf.ResponseStatus {
+snippet regp
+	"web_${1}":					func (req gf.RequestInterface) *gf.ResponseStatus {
 
-		ok, app := Guest(req.Path(), req.Res(), req.R()); if !ok { return nil }
-		status, rc := NewRequestContext(req, app.client); if status != nil { return status }
+		//client := req.Param("$client").(*cloud.Client)
+		rc := req.Param("$rc").(*valid.RequestContext)
 
-		title := "${2:$1}"
+		title := "${2}"
 
-		return rc.RenderPage(req, "dist/templates/pages/proposal.page.html", title, nil, true, false)
+		return RenderPage(rc, req, "dist/templates/pages/about/${3}.page.html", title, nil, true, true)
 
 	},
 snippet registerssr
