@@ -281,7 +281,8 @@ snippet llngc
 		var fn = "$1";
 	});
 snippet llngf
-	services.factory('BrandFact', function($http, $q){
+	services.factory('${1:NameHere}', function($http, $q, ModuleService){
+		var fn = "$1"
 		'use strict';
 		// factories return the value like a pointer
 		// private and not viewable from frontend
@@ -442,12 +443,23 @@ snippet uid
 	APIService.UserID()
 # in function
 snippet inf
-	function(${1}){
+	function(data){
+		window.console.log('Got ${1}', data );
+		if(success){success(data);}
+	}${2}
+snippet ine
+	function(data){
+		window.console.error('Could not get ${1}', data);
+		if(fail){fail(data);}
 	}
 snippet image
 	'https://media.leadinglocally.com/api/image/'+${1:id}+'/large';
 snippet cc
 	NavigationService.Location.Country().Code
+snippet languageCode
+	var languageCode = $scope.languageCode = LanguageService.language.toLowerCase();
+snippet lc
+	LanguageService.language.toLowerCase();
 snippet countryCode
 	var countryCode = $scope.countryCode = NavigationService.Location.Country().Code;
 snippet lc
@@ -458,3 +470,107 @@ snippet mfuncs
 	}, function(){
 		window.console.error('Could not get ${2:$1}', fn);
 	});
+snippet async
+	// this is just a reminder
+	// predict a bunch of tags at the same time
+	this.asyncPredict = function(input) {
+		var deferred = $q.defer();
+		var functionCalls = [
+			this.predictNormalTags(input),
+			this.predictProductTags(input),
+			this.predictBrandTags(input),
+			this.predictTrademarkTags(input),
+			// this.predictWantedTags(input)
+		];
+		$q.all(functionCalls)
+		.then(
+			function(results){
+				deferred.resolve(results);
+			},
+			function(errors){
+				deferred.reject(errors);
+			},
+			function(updates){
+				deferred.update(updates);
+			}
+		);
+		return deferred.promise;
+	};
+snippet intb
+	var buttons = [];
+	// pass menuConfig to the object when calling this template
+	// menuConfig.buttons :
+	function MenuButtonsFact(display, icon, active, clickFunc) {
+		var obj = {};
+		obj.display = display;
+		obj.icon = icon;
+		obj.active = active;
+		obj.clickFunc = clickFunc;
+		buttons.push(obj);
+	}
+
+	// the factories must be written with inline functions or they won't work
+
+	new MenuButtonsFact('Add accreditation', 'add', false, function(){
+	});
+	new MenuButtonsFact('Upload accreditation spreadsheet', 'cloud_upload', false, function(){
+	});
+
+	menuConfig = { buttons: buttons };
+
+	InteractionOverlay.open({
+		event: ev,
+		template: '/en/template/overlay/menu.tpl.html',
+		controller: 'MenuOverlayCtrl',
+		object: { menuConfig: menuConfig },
+		finish: function(){
+		},
+		cancel: function(){
+		}
+	});
+snippet bu
+	new MenuButtonsFact('Add ${1}', '${2:edit}', false, function(){
+	});
+snippet dou
+	var ${1:var} = $scope.$1 = $2
+snippet Dou
+	var ${1:var} = scope.$1 = $2
+snippet imageUpload
+	set: function(ev, businessId, success, fail){
+	// pass the id and success & fail function callbacks into the calling function in the factory
+	// change the values
+
+		var uploaderConfig = {
+			success: function(data){
+				InteractionOverlay.hide();
+				if(success){success(data);}
+			},
+			fail: function(data){
+				if(fail){fail(data);}
+			},
+			queueLimit: 1,
+			entityType: 'business',
+			entityId: businessId,
+			mode: background,
+			autoUpload: true
+		};
+
+		InteractionOverlay.open({
+			event: ev,
+			template: '/en/template/overlay/images/base.tpl.html',
+			controller: 'ImagesOverlayCtrl',
+			object: { uploaderConfig: uploaderConfig },
+			finish: function(){
+				getImage();
+			},
+			cancel: function(){
+
+			}
+		});
+
+	},
+snippet suc
+	.success(function(data){
+	})
+snippet reth
+	return $http.get(url);

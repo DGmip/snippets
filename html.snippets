@@ -1258,7 +1258,7 @@ snippet lw
 
 # leading locally snippets
 snippet adb
-	<add-box text='${1:Add a thing}' type='${2}'></add-box>
+	<add-box text='${1:Add a thing}' type='${2}' class='${3}'></add-box>
 snippet flexing
 	<div flex='${1}'>
 	</div>
@@ -1321,3 +1321,23 @@ snippet youtube
 	<iframe width="420" height="315"
 		src="https://www.youtube.com/embed/">
 	</iframe>
+snippet sch
+	<scroll-header prev='${1}-section' next='${2}-section' title='${3}' sh-id='${4}-section'></scroll-header>
+snippet states
+	<div ng-switch='states.${1:state}'>
+
+		<div ng-switch-when='ready'>
+		</div> <!-- switch when ready -->
+
+		<div ng-switch-when='error' class='error' layout='column' layout-align='center center' layout-fill>
+			<ng-md-icon class='error' icon="error" size="40"></ng-md-icon>
+		</div> <!-- switch when error -->
+
+		<div ng-switch-when='no-$1'>
+		</div> <!-- switch when no-$1 -->
+
+	</div> <!-- switch -->
+snippet ngc
+	ng-controller="${1}"
+snippet tagsautocomp
+	<tags-autocomplete config='acConfig' click='stage(tag)'></tags-autocomplete>
