@@ -1231,8 +1231,6 @@ snippet mdtab
 		<md-tab-body>
 		</md-tab-body>
 	</md-tab>
-snippet rib
-	<rounded-icon-button display='${1}' icon='${2}' color-class='${3}'></rounded-icon-button>
 snippet divc.
 	<div layout='column' layout-align='${1:start} ${2:center}' class='${3}'>
 	</div>
@@ -1275,7 +1273,7 @@ snippet enta
 snippet flag
 	<flag size='${1}' country-code='${1}'></flag>
 snippet rib
-	<rounded-icon-button display='${1}' icon='file_upload' color-class='${2}' ng-click="Sections.${3:section}.overlay.${4:function}($event)"></rounded-icon-button>
+	<rounded-icon-button display='${1}' icon='${4}' color-class='${2}' ng-click="${3}"></rounded-icon-button>
 snippet progress
 	<md-progress-linear md-mode="indeterminate"></md-progress-linear>
 snippet ready
@@ -1341,3 +1339,36 @@ snippet ngc
 	ng-controller="${1}"
 snippet tagsautocomp
 	<tags-autocomplete config='acConfig' click='stage(tag)'></tags-autocomplete>
+snippet dctw
+	<div class="col-xs-12">
+		${1}
+	</div>
+snippet adminsection
+	<md-tab id="${1:id}">
+		<md-tab-label>
+			<span>${2}</span>
+		</md-tab-label>
+		<md-tab-body md-content>
+
+			<div class="section" layout='column' layout-align='start center'>
+				<div layout='row' layout-align="start center" layout-fill>
+					<div flex='33'> </div>
+					<div flex='33'>
+						<scroll-header prev='top' next='top' title='Section title' sh-id='trending-section'></scroll-header>
+					</div>
+					<div flex='33' layout='row' layout-align='start center'>
+						<help-icon ng-click="setHelpActive('trending')"></help-icon>
+						<stretch-search-input input='brand.products.search'></stretch-search-input>
+					</div>
+				</div>
+			</div>
+
+			<div class="help" layout='column' layout-align='start center' layout-fill>
+				<help-panel config='thingHelp'></help-panel>
+			</div>
+
+			<div id="" class="content" layout='column' layout-align='start center'>
+			</div>
+		</md-tab-body>
+	</md-tab> <!-- $1 -->
+

@@ -180,6 +180,7 @@ snippet llngd
 			templateUrl: '/en/template/directive/${2}.html',
 			restrict: 'E',
 			link: function(scope, element, attrs) {
+				var fn = '$1'
 			} // end linking
 		}; // end return
 	});
@@ -571,6 +572,41 @@ snippet imageUpload
 	},
 snippet suc
 	.success(function(data){
+		${1}
+	});
+snippet damn
+	.error(function(data){
+		${1}
 	})
-snippet reth
-	return $http.get(url);
+snippet retg
+	return $http.get(url, headers);
+snippet retp
+	return $http.post(url, data, headers);
+snippet pan
+	${1}: {
+		get: function(){
+			points = [];
+			new PointFact( '', '');
+			return buildConfig();
+		},
+		hide: function(){
+
+		},
+		show: function(){
+
+		},
+	},${2}
+snippet hp
+	$scope.${1:type}Help = HelpFact.admin.brand.$1.get();
+snippet sha
+	$scope.${1}Help.active = true;
+snippet cla
+	export class ${1}{
+		${1}
+	}
+snippet configCheck
+	if(!scope.config){
+		window.console.warn('loaded without config: ', fn, 'got: ', scope.config );
+	}else{
+		window.console.log('loaded with config: ', scope.config, fn );
+	}
