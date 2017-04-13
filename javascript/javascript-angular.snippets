@@ -283,16 +283,10 @@ snippet llngc
 	});
 snippet llngf
 	services.factory('${1:NameHere}', function($http, $q, ModuleService){
-		var fn = "$1"
 		'use strict';
-		// factories return the value like a pointer
-		// private and not viewable from frontend
+		var fn = "$1";
 		var foo = 'bar';
-		// what is actually returned
 		return {
-			doSomething: function(baz){
-				return (baz + '...');
-			}
 		}; // end return
 	});
 
@@ -579,9 +573,21 @@ snippet damn
 		${1}
 	})
 snippet retg
-	return $http.get(url, headers);
+	return $http.get(url, APIService.tokenHeaders())
+		.success(function(data){
+			window.console.log('got ${1:thing}: ', data, fn );
+		})
+		.error(function(data){
+			window.console.error('could not get $1: ', data, fn );
+		});
 snippet retp
-	return $http.post(url, data, headers);
+	return $http.post(url, data, APIService.tokenHeaders())
+		.success(function(data){
+			window.console.log('Set ${1:thing}: ', data, fn );
+		})
+		.error(function(data){
+			window.console.error('Could not set $1', data, fn );
+		});
 snippet pan
 	${1}: {
 		get: function(){
@@ -610,3 +616,21 @@ snippet configCheck
 	}else{
 		window.console.log('loaded with config: ', scope.config, fn );
 	}
+snippet obf
+	${1:key}: function() {
+		return true;
+	}, // $1${2}
+snippet obo
+	${1:key}: {
+	}, // $1${2}
+snippet t
+	return true;
+snippet dis
+	ng-if="DisableFact.admin.brands.${1}"
+snippet sect
+	<div class="${1:section} section" ng-if='DisableFact.admin.brands.${2}'>
+	</div> <!-- $1 section -->
+snippet lead
+	url = 'https://${1:entity}.leadinglocally.com/api/${2}'
+
+
