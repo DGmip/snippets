@@ -575,10 +575,10 @@ snippet damn
 snippet retg
 	return $http.get(url, APIService.tokenHeaders())
 		.success(function(data){
-			window.console.log('got ${1:thing}: ', data, fn );
+			window.console.log('got business ${1:thing}: ', data, fn );
 		})
 		.error(function(data){
-			window.console.error('could not get $1: ', data, fn );
+			window.console.error('could not get business'+businessId+'/$1: ', data, fn );
 		});
 snippet retp
 	return $http.post(url, data, APIService.tokenHeaders())
@@ -631,6 +631,6 @@ snippet sect
 	<div class="${1:section} section" ng-if='DisableFact.admin.brands.${2}'>
 	</div> <!-- $1 section -->
 snippet lead
-	url = 'https://${1:entity}.leadinglocally.com/api/${2}'
-
-
+	url = 'https://${1:entity}.leadinglocally.com/api/business/'+businessId+'/${2}';
+snippet dd
+	${1:thing} = $scope.$1 = ${2}

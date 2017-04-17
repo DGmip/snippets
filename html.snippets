@@ -1344,31 +1344,55 @@ snippet dctw
 		${1}
 	</div>
 snippet adminsection
+	<div class='section ${1:id}'>
+		<div layout='column' layout-align='start center'>
+			<div layout='row' layout-align="start center" layout-fill>
+				<div flex='33'> </div>
+				<div flex='33'>
+					<scroll-header prev='top' next='top' title='${2:title}' sh-id='$1-section'></scroll-header>
+				</div>
+				<div flex='33' layout='row' layout-align='start center'>
+					<help-icon ng-click="setHelpActive('$1')"></help-icon>
+					<stretch-search-input input='$1Search'></stretch-search-input>
+				</div>
+			</div>
+		</div>
+
+		<div class="help" layout='column' layout-align='start center' layout-fill>
+			<help-panel config='$1Help'></help-panel>
+		</div>
+
+		<div class="content" layout='column' layout-align='start center'>
+		</div>
+	</div> <!-- .section.$1 -->
+snippet admintab
 	<md-tab id="${1:id}">
 		<md-tab-label>
-			<span>${2}</span>
+			<span>${2:title}</span>
 		</md-tab-label>
 		<md-tab-body md-content>
 
-			<div class="section" layout='column' layout-align='start center'>
-				<div layout='row' layout-align="start center" layout-fill>
-					<div flex='33'> </div>
-					<div flex='33'>
-						<scroll-header prev='top' next='top' title='Section title' sh-id='trending-section'></scroll-header>
-					</div>
-					<div flex='33' layout='row' layout-align='start center'>
-						<help-icon ng-click="setHelpActive('trending')"></help-icon>
-						<stretch-search-input input='brand.products.search'></stretch-search-input>
+			<div class='section $1'>
+				<div layout='column' layout-align='start center'>
+					<div layout='row' layout-align="start center" layout-fill>
+						<div flex='33'> </div>
+						<div flex='33'>
+							<scroll-header prev='top' next='top' title='$2' sh-id='$1-section'></scroll-header>
+						</div>
+						<div flex='33' layout='row' layout-align='start center'>
+							<help-icon ng-click="setHelpActive('$1')"></help-icon>
+							<stretch-search-input input='$1Search'></stretch-search-input>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="help" layout='column' layout-align='start center' layout-fill>
-				<help-panel config='thingHelp'></help-panel>
-			</div>
+				<div class="help" layout='column' layout-align='start center' layout-fill>
+					<help-panel config='$1Help'></help-panel>
+				</div>
 
-			<div id="" class="content" layout='column' layout-align='start center'>
-			</div>
+				<div class="content" layout='column' layout-align='start center'>
+				</div>
+			</div> <!-- .section.$1 -->
 		</md-tab-body>
-	</md-tab> <!-- $1 -->
-
+	</md-tab>
+	${3}
