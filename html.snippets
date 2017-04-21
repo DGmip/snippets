@@ -1396,3 +1396,45 @@ snippet admintab
 		</md-tab-body>
 	</md-tab>
 	${3}
+snippet card
+	<div layout='column' class="card ${1:card-class} md-whiteframe-z1">
+
+		<div class="main" layout='column' flex>
+
+			<div class="avatars" layout='row' layout-align='center center'>
+				<!-- should be two avatars minimum (standard design -->
+				<flag size='square' country-code="'UK'"></flag>
+				<entity-avatar entity-type='ll'></entity-avatar>
+			</div>
+
+			<div layout='column' class='top' layout-align="center center" style="background-image:url('{{}}')" flex='50'>
+			</div>
+
+			<div class='bottom' layout='column' layout-align='center center' flex='50'>
+
+				<span class="name">{{name}}</span>
+				<span class="role">{{role}}</span>
+
+			</div> <!-- bottom -->
+
+		</div><!-- main -->
+
+		<div class="stats" layout='row' layout-align='start center'>
+		</div>
+
+	</div> <!-- .card -->
+snippet overlay
+	<div layout='column' class="content white" layout='column' layout-align='start center' layout-fill>
+		<div class="section">
+			<h1>Landing overlay</h1>
+		</div>
+		<div class="section">
+		</div>
+		<div class="section" layout='column' layout-align="start start">
+		</div>
+		<div layout='row' class="action-buttons section" layout-align="end center">
+			<entity-avatar ng-show='loggedIn' entity-type='user' mode='n/a' entity-id='userId'></entity-avatar>
+			<help-icon></help-icon>
+			<rounded-icon-button display='Subscribe' icon='email' color-class='trademark-green' ng-click="subscribe()"></rounded-icon-button>
+		</div>
+	</div>

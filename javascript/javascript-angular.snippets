@@ -174,13 +174,13 @@ snippet template
 	<script id="${1:id}" type="text/ng-template">
 	</script>
 snippet llngd
-	directives.directive('${1}', function() {
+	directives.directive('${1:dirName}', function() {
 		return {
 			scope: {},
-			templateUrl: '/en/template/directive/${2}.html',
+			templateUrl: '/en/template/directive/${2}.dir.html',
 			restrict: 'E',
-			link: function(scope, element, attrs) {
-				var fn = '$1'
+			link: function(scope) {
+				var fn = '$1';
 			} // end linking
 		}; // end return
 	});
@@ -575,7 +575,7 @@ snippet damn
 snippet retg
 	return $http.get(url, APIService.tokenHeaders())
 		.success(function(data){
-			window.console.log('got business ${1:thing}: ', data, fn );
+			window.console.log('got ${1:thing}: ', data, fn );
 		})
 		.error(function(data){
 			window.console.error('could not get $1: ', data, fn );
@@ -592,14 +592,7 @@ snippet pan
 	${1}: {
 		get: function(){
 			points = [];
-			new PointFact( '', '');
 			return buildConfig();
-		},
-		hide: function(){
-
-		},
-		show: function(){
-
 		},
 	},${2}
 snippet hp
@@ -627,14 +620,13 @@ snippet t
 	return true;
 snippet dis
 	ng-if="DisableFact.admin.brands.${1}"
-snippet sect
-	<div class="${1:section} section" ng-if='DisableFact.admin.brands.${2}'>
-	</div> <!-- $1 section -->
 snippet lead
 	url = 'https://${1:entity}.leadinglocally.com/api/business/'+businessId+'/${2}';
 snippet dd
 	${1:thing} = $scope.$1 = ${2}
 snippet imageurl
 	'https://media.leadinglocally.com/api/image/'+${1:id}+'/'+size;
-
-
+snippet hel
+	case '${1:section}':
+		$scope.$1Help.active = true;
+		break;${2}
