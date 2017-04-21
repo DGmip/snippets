@@ -282,10 +282,10 @@ snippet llngc
 		var fn = "$1";
 	});
 snippet llngf
-	services.factory('${1:NameHere}', function($http, $q, ModuleService){
+	services.factory('${1:NameHere}', function($http, $q, ModuleService, APIService){
 		'use strict';
 		var fn = "$1";
-		var foo = 'bar';
+		var url = '';
 		return {
 		}; // end return
 	});
@@ -578,7 +578,7 @@ snippet retg
 			window.console.log('got business ${1:thing}: ', data, fn );
 		})
 		.error(function(data){
-			window.console.error('could not get business'+businessId+'/$1: ', data, fn );
+			window.console.error('could not get $1: ', data, fn );
 		});
 snippet retp
 	return $http.post(url, data, APIService.tokenHeaders())
@@ -634,3 +634,7 @@ snippet lead
 	url = 'https://${1:entity}.leadinglocally.com/api/business/'+businessId+'/${2}';
 snippet dd
 	${1:thing} = $scope.$1 = ${2}
+snippet imageurl
+	'https://media.leadinglocally.com/api/image/'+${1:id}+'/'+size;
+
+
