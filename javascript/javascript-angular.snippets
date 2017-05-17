@@ -167,7 +167,7 @@ snippet c
 snippet sc
 	$scope.${1:name} = ${2};
 snippet scf
-	$scope.${1:name} = function(${2:params}) {
+	$scope.${1:name} = function(${2}) {
 		${3}
 	};
 snippet template
@@ -398,9 +398,8 @@ snippet $watch
 snippet into
 	InteractionOverlay.open({
 		event: ev,
-		template: '/en/template/overlay/${1:template}.tpl.html',
-		controller: '${2}OverlayCtrl',
-		object: {},
+		controller: '${1}OverlayCtrl',
+		object: {scope: $scope, menu: ${2}},
 		finish: function(){
 		},
 		cancel: function(){
@@ -566,7 +565,6 @@ snippet imageUpload
 	},
 snippet suc
 	.success(function(data){
-		${1}
 	});
 snippet damn
 	.error(function(data){
@@ -583,11 +581,16 @@ snippet retg
 snippet retp
 	return $http.post(url, data, APIService.tokenHeaders())
 		.success(function(data){
-			window.console.log('Set ${1:thing}: ', data, fn );
+			window.console.log('${1:thing}: ', data, fn );
 		})
 		.error(function(data){
-			window.console.error('Could not set $1', data, fn );
+			window.console.error('Could not $1', data, fn );
 		});
+snippet fac
+	${1}: {
+		get: function(){
+		},
+	},${2}
 snippet pan
 	${1}: {
 		get: function(){
@@ -621,7 +624,7 @@ snippet t
 snippet dis
 	ng-if="DisableFact.admin.brands.${1}"
 snippet lead
-	url = 'https://${1:entity}.leadinglocally.com/api/business/'+businessId+'/${2}';
+	url = 'https://${1:entity}.leadinglocally.com/api/${2}';
 snippet dd
 	${1:thing} = $scope.$1 = ${2}
 snippet imageurl
@@ -630,3 +633,32 @@ snippet hel
 	case '${1:section}':
 		$scope.$1Help.active = true;
 		break;${2}
+snippet hep
+	$scope.${1:id}Help = HelpFact.admin.user.${2}.$1.get();
+snippet section
+	//
+	// SECTION ${1}
+	//
+snippet but
+	{
+		display: '${1}',
+		icon: '${2}',
+		active: ${3:false},
+		clickFunc: function(){
+		${4}},
+		menuArray: [${5}],
+	},${6}
+snippet back
+	{
+		display: '',
+		icon: 'chevron_left',
+		active: true,
+		clickFunc: function(){
+			InteractionOverlay.menuButtons = menuArray;
+		},
+		menuArray: [],
+	},
+snippet template
+	$scope.templateUrl = templateBase + '${1}.tpl.html';
+snippet match
+	var ${1:var} = $scope.$1 = object.scope.$1;

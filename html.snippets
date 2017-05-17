@@ -501,7 +501,7 @@ snippet img.
 snippet img#
 	<img id="${1}" src="${2}" alt="${3}" />
 snippet inputt
-	<input class="input" type="text" name="input" id="input" placeholder="${1}" ng-model="${2}" />
+	<input class="input" type="text" name="input" id="input" placeholder="${1:input}" ng-model="${2:$1}" />
 snippet input.
 	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />
 snippet input:text
@@ -1206,8 +1206,6 @@ snippet mdtt
 	<md-tooltip>
 		${1:text}
 	</md-tooltip>
-snippet tabs
-
 snippet tab
 	<md-tab>
 		<md-tab-label>${1}</md-tab-label>
@@ -1264,14 +1262,14 @@ snippet swi
 	<div ng-switch='${1}'>
 	</div>
 snippet swiw
-	<div ng-switch-when='${1}'>
-	</div>
+	<div ng-switch-when='${1:what}'>
+	</div> <!-- when $1 -->
 snippet tag
 	<tag tag-object='t' color-class='${1}' icon='${2}' ng-repeat="t in ${3}"></tag>
 snippet enta
 	<entity-avatar entity-type='${1}' mode='${2}' entity-id='${3}'></entity-avatar>
 snippet flag
-	<flag size='${1}' country-code='${1}'></flag>
+	<flag size='${1}' country-code="${2}"></flag>
 snippet rib
 	<rounded-icon-button display='${1}' icon='${4}' color-class='${2}' ng-click="${3}"></rounded-icon-button>
 snippet progress
@@ -1344,6 +1342,8 @@ snippet dctw
 		${1}
 	</div>
 snippet adminsection
+	<md-divider></md-divider>
+
 	<div class='section ${1:id}'>
 		<div layout='column' layout-align='start center'>
 			<div layout='row' layout-align="start center" layout-fill>
@@ -1402,9 +1402,8 @@ snippet card
 		<div class="main" layout='column' flex>
 
 			<div class="avatars" layout='row' layout-align='center center'>
-				<!-- should be two avatars minimum (standard design -->
 				<flag size='square' country-code="'UK'"></flag>
-				<entity-avatar entity-type='ll'></entity-avatar>
+				<entity-avatar entity-type='' mode='' entity-id=''></entity-avatar>
 			</div>
 
 			<div layout='column' class='top' layout-align="center center" style="background-image:url('{{}}')" flex='50'>
@@ -1419,7 +1418,7 @@ snippet card
 
 		</div><!-- main -->
 
-		<div class="stats" layout='row' layout-align='start center'>
+		<div class="stats" layout='row' layout-align='center center'>
 		</div>
 
 	</div> <!-- .card -->
@@ -1438,3 +1437,18 @@ snippet overlay
 			<rounded-icon-button display='Subscribe' icon='email' color-class='trademark-green' ng-click="subscribe()"></rounded-icon-button>
 		</div>
 	</div>
+snippet tagbutton
+	<tag-button text='${1:text}' icon='${2:icon}' color-class='${3:colorClass}'></tag-button>
+snippet cardhover
+	<div class="hover-layer"></div>
+	<ng-md-icon class='hover-icon' icon="edit" size="40"></ng-md-icon>
+snippet newtag
+	<new-tag
+		string='${1:@}'
+		icon='${2:@}'
+		number='${3:@}'
+		displayClass='${4:=}'
+		nudge='${5:@}'
+		ng-repeat='t in ${6}'
+	></new-tag>
+
