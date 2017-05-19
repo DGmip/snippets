@@ -1451,4 +1451,17 @@ snippet newtag
 		nudge='${5:@}'
 		ng-repeat='t in ${6}'
 	></new-tag>
+snippet overlay
+	<div layout='column' class="content" layout='column' layout-align='start center'>
+		<div class="section">
+			<h2>${1:title}</h2>
+		</div>
+		<div class="section">
+		</div>
+		<div layout='row' class="action-buttons section" layout-align="end center">
+			<entity-avatar is-small='true'></entity-avatar>
+			<help-icon></help-icon>
+			<rounded-icon-button display='Add team member' icon='add' color-class='brand-green' ng-click="addTeamMember()"></rounded-icon-button>
+		</div>
+	</div>
 

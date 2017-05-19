@@ -405,19 +405,6 @@ snippet into
 		cancel: function(){
 		}
 	});
-snippet overlay
-	<div layout='column' class="content" layout='column' layout-align='start center'>
-		<div class="section">
-			<h2>${1:title}</h2>
-		</div>
-		<div class="section">
-		</div>
-		<div layout='row' class="action-buttons section" layout-align="end center">
-			<entity-avatar is-small='true'></entity-avatar>
-			<help-icon></help-icon>
-			<rounded-icon-button display='Add team member' icon='add' color-class='brand-green' ng-click="addTeamMember()"></rounded-icon-button>
-		</div>
-	</div>
 snippet uploaderConfig
 	var uploaderConfig = {
 		success: function(response){
@@ -662,3 +649,51 @@ snippet template
 	$scope.templateUrl = templateBase + '${1}.tpl.html';
 snippet match
 	var ${1:var} = $scope.$1 = object.scope.$1;
+snippet overlay
+	app.controller("${1:function}OverlayCtrl", function($scope, InteractionOverlay, object, $mdDialog, BrandFact, BusinessFact, UserFact) {
+		'use-strict';
+		var fn = "$1OverlayCtrl";
+		var x;
+
+		$scope.InteractionOverlay = InteractionOverlay;
+		$scope.templateUrl = object.menu ? '/en/template/component/overlay/templates/menu.tpl.html' : config.template;
+
+		var templateBase = '/en/template/overlay/admin/contact/';
+		//
+		var changeTemplate = $scope.changeTemplate = function(template) {
+			console.log('Changing overlay template to: ', template);
+			$scope.templateUrl = templateBase + template+'.tpl.html';
+		};
+
+		var entityType = $scope.entityType = object.scope.entityType;
+		var entityId = $scope.entityId = object.scope.entityId;
+		var countryCode = $scope.countryCode = object.scope.countryCode;
+		var name = $scope.name = object.scope.name;
+		var entityCountryCode = $scope.entityCountryCode = entityType === 'brand' ? 'GLB' : object.scope.entityCountryCode;
+		$scope.confirmText = '';
+		$scope.pageState = 'ready';
+		// dev
+		// $scope.templateUrl = templateBase + 'website.tpl.html';
+
+		// build the menu array object and save it in the service
+
+		var menuArray = [
+		];
+
+		// set the overlay menu to this configuration
+		InteractionOverlay.menuButtons = menuArray;
+
+		// cancel loads the menu view which will have the previous configuration.
+		$scope.cancel = function(close) {
+			if(!close){
+				$scope.templateUrl = '/en/template/component/overlay/templates/menu.tpl.html';
+			}else{
+				InteractionOverlay.close();
+			}
+		};
+
+		$scope.close = function() {
+			InteractionOverlay.close();
+		};
+
+	});
