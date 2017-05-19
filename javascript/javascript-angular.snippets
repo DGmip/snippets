@@ -399,7 +399,7 @@ snippet into
 	InteractionOverlay.open({
 		event: ev,
 		controller: '${1}OverlayCtrl',
-		object: {scope: $scope, menu: ${2}},
+		object: {scope: $scope, menu: ${2:true}},
 		finish: function(){
 		},
 		cancel: function(){
@@ -641,7 +641,7 @@ snippet back
 		icon: 'chevron_left',
 		active: true,
 		clickFunc: function(){
-			InteractionOverlay.menuButtons = menuArray;
+			InteractionOverlay.close();
 		},
 		menuArray: [],
 	},

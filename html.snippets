@@ -1397,29 +1397,34 @@ snippet admintab
 	</md-tab>
 	${3}
 snippet card
-	<div layout='column' class="card ${1:card-class} md-whiteframe-z1">
+	<div layout='column' class="card md-whiteframe-z1 ">
 
 		<div class="main" layout='column' flex>
 
 			<div class="avatars" layout='row' layout-align='center center'>
-				<flag size='square' country-code="'UK'"></flag>
-				<entity-avatar entity-type='' mode='' entity-id=''></entity-avatar>
+				<icon-avatar icon='phone'></icon-avatar>
+				<flag size='square' country-code="countryCode" color-class='{{entityType}}'></flag>
 			</div>
 
 			<div layout='column' class='top' layout-align="center center" style="background-image:url('{{}}')" flex='50'>
 			</div>
 
-			<div class='bottom' layout='column' layout-align='center center' flex='50'>
+			<div class='bottom {{entityType}}' layout='column' layout-align='center center' flex='50'>
 
-				<span class="name">{{name}}</span>
-				<span class="role">{{role}}</span>
+				<span class="head description">{{description}}</span>
+				<div class="body" layout='column' layout-align='center center' flex>
+					<span class="email">{{email}}</span>
+				</div>
 
 			</div> <!-- bottom -->
 
 		</div><!-- main -->
 
-		<div class="stats" layout='row' layout-align='center center'>
+		<div class="stats icons" layout='row' layout-align='center center'>
+			<span class="status">Pending</span>
 		</div>
+
+		<div class="hover-layer"></div>
 
 	</div> <!-- .card -->
 snippet overlay
