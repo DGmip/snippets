@@ -624,7 +624,13 @@ snippet hep
 	$scope.${1:id}Help = HelpFact.admin.user.${2}.$1.get();
 snippet section
 	//
-	// SECTION ${1}
+	// SECTION ${1:section}
+	//
+
+	${2}
+
+	//
+	// SECTION $1 end
 	//
 snippet but
 	{

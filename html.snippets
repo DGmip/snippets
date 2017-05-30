@@ -1469,4 +1469,8 @@ snippet overlay
 			<rounded-icon-button display='Add team member' icon='add' color-class='brand-green' ng-click="addTeamMember()"></rounded-icon-button>
 		</div>
 	</div>
-
+snippet counter
+	<div class='counter' layout='row' layout-align='start center'>
+		<tag-button text='{{user.${1}.length}}' color-class='ll'></tag-button>
+		<show-more-button click-func="showMore${2}(showing)"></show-more-button>
+	</div>
