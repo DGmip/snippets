@@ -1397,31 +1397,34 @@ snippet admintab
 	</md-tab>
 	${3}
 snippet card
-	<div layout='column' class="card md-whiteframe-z1 ">
+	<div layout='column' class="card md-whiteframe-z1 no-hover">
 
 		<div class="main" layout='column' flex>
 
 			<div class="avatars" layout='row' layout-align='center center'>
-				<icon-avatar icon='phone'></icon-avatar>
+				<!-- should be two avatars minimum (standard design -->
+
+				<icon-avatar icon='web'></icon-avatar>
 				<flag size='square' country-code="countryCode" color-class='{{entityType}}'></flag>
+
 			</div>
 
-			<div layout='column' class='top' layout-align="center center" style="background-image:url('{{}}')" flex='50'>
+			<div layout='column' class='top' layout-align="center center" style="background-image:url('{{websiteImageUrl}}')" flex='50'>
 			</div>
 
-			<div class='bottom {{entityType}}' layout='column' layout-align='center center' flex='50'>
+			<div class='bottom' layout='column' layout-align='start center' flex='50' ng-class="{business: entityType === 'business', brand: entityType === 'brand'}">
 
 				<span class="head description">{{description}}</span>
-				<div class="body" layout='column' layout-align='center center' flex>
-					<span class="email">{{email}}</span>
+				<div layout='column' class="body" layout-align="center center" flex>
+					<a class="url" href="{{url}}" target="_blank">{{urlText | limitTo: 25}}</a>
 				</div>
 
 			</div> <!-- bottom -->
 
 		</div><!-- main -->
 
-		<div class="stats icons" layout='row' layout-align='center center'>
-			<span class="status">Pending</span>
+		<div class="stats" layout='column' layout-align='center center'>
+			<span class="status">{{status}}</span>
 		</div>
 
 		<div class="hover-layer"></div>
@@ -1452,7 +1455,7 @@ snippet newtag
 		string='${1:@}'
 		icon='${2:@}'
 		number='${3:@}'
-		displayClass='${4:=}'
+		display-class='${4:=}'
 		nudge='${5:@}'
 		ng-repeat='t in ${6}'
 	></new-tag>
