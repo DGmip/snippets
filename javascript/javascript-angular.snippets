@@ -407,15 +407,13 @@ snippet into
 	});
 snippet uploaderConfig
 	var uploaderConfig = {
-		success: function(response){
-			window.console.log('Successfully uploaded image: ', response );
+		url: 'https://entity.leadinglocally.com/api/',
+		success: function(){
 		},
 		fail: function(response){
 		},
+		headers: APIService.tokenHeaders().headers,
 		queueLimit: 1,
-		entityType: 'company',
-		entityId: 'DPp3qS4_T7KVGft37xefhbYwCUbwZ8',
-		mode: 'logo',
 		autoUpload: true
 	};
 snippet entav
@@ -703,3 +701,5 @@ snippet overlay
 		};
 
 	});
+snippet loggedin
+	APIService.LoggedIn()
