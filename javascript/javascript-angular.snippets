@@ -558,18 +558,18 @@ snippet damn
 snippet retg
 	return $http.get(url, APIService.tokenHeaders())
 		.success(function(data){
-			window.console.log('got ${1:thing}: ', data, fn );
+			window.console.log('got ${1:thing}: ', data, fn, url );
 		})
 		.error(function(data){
-			window.console.error('could not get $1: ', data, fn );
+			window.console.error('Failed $1: ', data, fn, url );
 		});
 snippet retp
 	return $http.post(url, data, APIService.tokenHeaders())
 		.success(function(data){
-			window.console.log('${1:thing}: ', data, fn );
+			window.console.info('${1:thing}: ', data, fn, url );
 		})
 		.error(function(data){
-			window.console.error('Could not $1', data, fn );
+			window.console.error('Failed:  $1', data, fn, url );
 		});
 snippet fac
 	${1}: {
@@ -595,7 +595,7 @@ snippet configCheck
 	if(!scope.config){
 		window.console.warn('loaded without config: ', fn, 'got: ', scope.config );
 	}else{
-		window.console.log('loaded with config: ', scope.config, fn );
+		window.console.info('loaded with config: ', scope.config, fn );
 	}
 snippet obf
 	${1:key}: function() {
