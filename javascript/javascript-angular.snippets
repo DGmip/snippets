@@ -452,7 +452,6 @@ snippet mfuncs
 snippet async
 	// this is just a reminder
 	// predict a bunch of tags at the same time
-	this.asyncPredict = function(input) {
 		var deferred = $q.defer();
 		var functionCalls = [
 			this.predictNormalTags(input),
@@ -474,7 +473,6 @@ snippet async
 			}
 		);
 		return deferred.promise;
-	};
 snippet intb
 	var buttons = [];
 	// pass menuConfig to the object when calling this template
