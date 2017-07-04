@@ -37,10 +37,8 @@ snippet set
 		this._$1 = val;
 	}
 snippet const
-	constructor(${1:vars}) {
-		// this._var1 = var1;
-		${2}
-		// Human.totalPeople += 1;
+	constructor() {
+		${1}
 	}
 snippet constS
 	constructor(${1:vars}) {
@@ -58,3 +56,19 @@ snippet new
 	};
 snippet cg
 	${1}: ${2:string};
+snippet imp
+	import { ${1} } from '${2:@angular/core}';
+snippet router
+	RouterModule.forRoot([
+		{
+			path: '${1:heroes}',
+			component: ${2:HeroesComponent}
+		}
+	])
+snippet route
+	{
+		path: '${1}',
+		component: ${2}
+	},
+snippet routing
+	import { RouterModule, Routes } from '@angular/router';

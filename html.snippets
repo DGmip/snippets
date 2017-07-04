@@ -501,7 +501,7 @@ snippet img.
 snippet img#
 	<img id="${1}" src="${2}" alt="${3}" />
 snippet inputt
-	<input class="input" type="text" name="input" id="input" placeholder="${1:input}" ng-model="${2:$1}" />
+	<input class="input" type="text" placeholder="${1:input}" ng-model="${2}" />
 snippet input.
 	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />
 snippet input:text
@@ -1483,5 +1483,18 @@ snippet micon
 # angular 4 stuff
 snippet mod
 	[(ngModel)]="${1}"
-snippet for
+snippet ngf
 	*ngFor="let ${1} of ${2}"
+snippet cli
+	(click)="${1}"
+snippet ngi
+	*ngIf="${1}"
+snippet att
+	[${1}]="${2}"
+snippet rla
+	routerLinkActive="active"
+snippet rl
+	routerLink="/${1}"
+snippet comp
+	<app-${1:name}></app-$1>
+

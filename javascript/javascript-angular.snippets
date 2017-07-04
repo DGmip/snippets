@@ -168,7 +168,6 @@ snippet sc
 	$scope.${1:name} = ${2};
 snippet scf
 	$scope.${1:name} = function(${2}) {
-		${3}
 	};
 snippet template
 	<script id="${1:id}" type="text/ng-template">
@@ -201,7 +200,7 @@ snippet ar
 	ng-repeat="${3:ref} in test.G.Access(test.uid, '${1:in}', '${2:edge}')"
 snippet lltoast
 	//scope.LLToast = (text, position, duration, id, icon, colourClass)
-	APIService.LLToast(${1:text});
+	AuthService.LLToast(${1:text});
 snippet filter
 	app.filter('${1:name}', function() {
 		return function(input) {
@@ -219,7 +218,7 @@ snippet userindex
 	$scope.following = GraphService.UserIndex(${1:id}, ${2:phase}, ${3:predicate})
 snippet toast
 	//scope.LLToast = function (text, position, duration, id, icon, iconClass) {
-	APIService.LLToast(${1:text}, ${2:null}, ${3:duration},	${4}, ${5})
+	AuthService.LLToast(${1:text}, ${2:null}, ${3:duration},	${4}, ${5})
 
 snippet tiny
 	case '${1:text}':
@@ -282,7 +281,7 @@ snippet llngc
 		var fn = "$1";
 	});
 snippet llngf
-	services.factory('${1:NameHere}', function($http, $q, ModuleService, APIService){
+	services.factory('${1:NameHere}', function($http, $q, ModuleService, AuthService){
 		'use strict';
 		var fn = "$1";
 		var url = '';
@@ -412,14 +411,14 @@ snippet uploaderConfig
 		},
 		fail: function(response){
 		},
-		headers: APIService.tokenHeaders().headers,
+		headers: AuthService.tokenHeaders().headers,
 		queueLimit: 1,
 		autoUpload: true
 	};
 snippet entav
 	<entity-avatar entitytype='${1}' mode='${2}' entity-id='${3}' editable='false'></entity-avatar>
 snippet uid
-	APIService.UserID()
+	AuthService.UserID()
 # in function
 snippet inf
 	function(data){
@@ -554,7 +553,7 @@ snippet damn
 		${1}
 	})
 snippet retg
-	return $http.get(url, APIService.tokenHeaders())
+	return $http.get(url, AuthService.tokenHeaders())
 		.success(function(data){
 			window.console.log('got ${1:thing}: ', data, fn, url );
 		})
@@ -562,7 +561,7 @@ snippet retg
 			window.console.error('Failed $1: ', data, fn, url );
 		});
 snippet retp
-	return $http.post(url, data, APIService.tokenHeaders())
+	return $http.post(url, data, AuthService.tokenHeaders())
 		.success(function(data){
 			window.console.info('${1:thing}: ', data, fn, url );
 		})
@@ -700,4 +699,4 @@ snippet overlay
 
 	});
 snippet loggedin
-	APIService.LoggedIn()
+	AuthService.LoggedIn()
