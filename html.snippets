@@ -1480,6 +1480,8 @@ snippet counter
 	</div>
 snippet micon
 	<i class="material-icons">${1}</i>
+snippet uisa
+	ui-sref-active="${1}"
 # angular 4 stuff
 snippet mod
 	[(ngModel)]="${1}"
@@ -1497,4 +1499,5 @@ snippet rl
 	routerLink="/${1}"
 snippet comp
 	<app-${1:name}></app-$1>
-
+snippet ro
+	<a ui-sref="${1:route}" ui-sref-active="active">$1</a>

@@ -145,23 +145,23 @@ snippet cont
 		var self = this;
 		self.test = "tested";
 	});
-snippet route
-	${1:appName}.config(['$routeProvider', function($routeProvider) {
-			$routeProvider.
-				when('/${2:route}', {
-					templateUrl: 'partials/${3:templateName}',
-					controller: '${4:controllerName}'
-				}).
-				otherwise({
-					redirectTo: '/'
-				});
-			}]);
-			// you need to include angular-route.min.js and put 'ngRoute' as a dependancy for your app
+# snippet route
+# 	${1:appName}.config(['$routeProvider', function($routeProvider) {
+# 			$routeProvider.
+# 				when('/${2:route}', {
+# 					templateUrl: 'partials/${3:templateName}',
+# 					controller: '${4:controllerName}'
+# 				}).
+# 				otherwise({
+# 					redirectTo: '/'
+# 				});
+# 			}]);
+# 			// you need to include angular-route.min.js and put 'ngRoute' as a dependancy for your app
 snippet when
-	when('/${1:route}', {
-		templateUrl: 'templates/views/${2:$1}',
-		controller: '${3:controllerName}'
-	}).
+	.when('/${1:route}', {
+		templateUrl: 'views/${2:$1}.page.html',
+		controller: '${3:controllerName}Ctrl'
+	})
 snippet c
 	window.console.log( ${1} );
 snippet sc
@@ -433,7 +433,13 @@ snippet ine
 snippet image
 	'https://media.leadinglocally.com/api/image/'+${1:id}+'/large';
 snippet cc
-	NavigationService.Location.Country().Code
+	LocationService.countryCode.get();
+snippet ccc
+	var countryCode = $scope.countryCode = LocationService.countryCode.get();
+snippet ttt
+	var townName = $scope.townName = LocationService.town.get();
+snippet tt
+	LocationService.town.get();
 snippet languageCode
 	var languageCode = $scope.languageCode = LanguageService.language.toLowerCase();
 snippet lc
@@ -700,3 +706,17 @@ snippet overlay
 	});
 snippet loggedin
 	AuthService.LoggedIn()
+snippet route
+	.when('${1}', {
+		templateUrl: '/views/${2}page.html',
+		controller: '${3}Ctrl',
+	})
+snippet cont
+	'use strict';
+	angular.module('leadingLocallyWebApp')
+		.controller('${1}Ctrl', function ($scope) {
+		});
+snippet loggedd
+	var loggedIn = $scope.loggedIn = AuthService.isLoggedIn();
+snippet logged
+	AuthService.isLoggedIn()
