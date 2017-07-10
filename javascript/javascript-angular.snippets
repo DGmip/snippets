@@ -561,7 +561,7 @@ snippet damn
 snippet retg
 	return $http.get(url, AuthService.tokenHeaders())
 		.success(function(data){
-			window.console.log('got ${1:thing}: ', data, fn, url );
+			window.console.info('got ${1:thing}: ', data, fn, url );
 		})
 		.error(function(data){
 			window.console.error('Failed $1: ', data, fn, url );
