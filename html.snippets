@@ -501,7 +501,7 @@ snippet img.
 snippet img#
 	<img id="${1}" src="${2}" alt="${3}" />
 snippet inputt
-	<input class="input" type="text" placeholder="${1:input}" ng-model="${2}" />
+	<input class="input" type="text" placeholder="${1:input}" ng-model="${2}" name='${1}'/>
 snippet input.
 	<input class="${1}" type="${2:text/submit/hidden/button/image}" name="${3}" id="${4:$3}" value="${5}" />
 snippet input:text
@@ -882,7 +882,7 @@ snippet bowercss
 snippet bowerjs
 	<script src='/bower_components/${1:package}/${2:$1}.js' type="text/javascript" charset="utf-8"></script>
 snippet icon
-	<ng-md-icon class='light-grey3' icon="${1:send}" size="${2:24}"></ng-md-icon>
+	<ng-md-icon class='${3:light-grey3}' icon="${1:send}" size="${2:24}"></ng-md-icon>
 snippet md
 	<md-${1:thing}>
 	</md-$1>
@@ -1482,7 +1482,8 @@ snippet micon
 	<i class="material-icons">${1}</i>
 snippet uisa
 	ui-sref-active="${1}"
-# angular 4 stuff
+# @angular/flex-layout
+# @angular/core
 snippet mod
 	[(ngModel)]="${1}"
 snippet ngf
